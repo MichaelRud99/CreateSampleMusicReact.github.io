@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/monsegard3.github.io.git/static/css/main.675cb5af.css",
-    "main.js": "/monsegard3.github.io.git/static/js/main.0fcbcb78.js",
-    "static/media/backgroundImg.png": "/monsegard3.github.io.git/static/media/backgroundImg.c31d2315e64e8efdc104.png",
-    "index.html": "/monsegard3.github.io.git/index.html",
-    "main.675cb5af.css.map": "/monsegard3.github.io.git/static/css/main.675cb5af.css.map",
-    "main.0fcbcb78.js.map": "/monsegard3.github.io.git/static/js/main.0fcbcb78.js.map"
+    "main.css": "/monsegard3.github.io/static/css/main.4e97970f.css",
+    "main.js": "/monsegard3.github.io/static/js/main.0fcbcb78.js",
+    "static/media/backgroundImg.png": "/monsegard3.github.io/static/media/backgroundImg.c31d2315e64e8efdc104.png",
+    "index.html": "/monsegard3.github.io/index.html",
+    "main.4e97970f.css.map": "/monsegard3.github.io/static/css/main.4e97970f.css.map",
+    "main.0fcbcb78.js.map": "/monsegard3.github.io/static/js/main.0fcbcb78.js.map"
   },
   "entrypoints": [
-    "static/css/main.675cb5af.css",
+    "static/css/main.4e97970f.css",
     "static/js/main.0fcbcb78.js"
   ]
 }
