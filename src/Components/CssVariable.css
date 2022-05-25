@@ -1,0 +1,44 @@
+:root {
+    --white: white;
+    --black: black;
+    --grey: grey;
+
+    --white-almost: #f5f5f5;
+    --light-grey: #c5c5c5;
+
+    --btn-create-text: #eff3f2;
+    --btn-create: #6e748d;
+    --btn-create-hover: #313854;
+    --btn-fast-view: #c3f572b2;
+    --btn-fast-view-hover: #c3f572;
+    --btn-delete-all: brown;
+    --btn-reset: #08429b45;
+    --btn-reset-text: bisque;
+
+    --list-background: #132938dc;
+    --list-background-darked: #132938ec;
+    --search-focus: #82b1d357;
+
+    --btn-delete: #717571;
+    --btn-delete-hover: #3f413e;
+
+    --tr-delete: #787c77b4;
+
+    --btn-close-hover: #e94e06;
+
+    --modal-window-border: #DB9316B8;
+
+    --error: rgba(228, 130, 180, 0.74);
+    /* rgba(228, 130, 180, 0.74); */
+    --error-background: rgb(235, 203, 182);
+
+    --form-background: #2f5d77;
+    --form-input: rgb(0, 0, 0);
+    --form-input-border: #F4F0E9;
+    --form-input-hover: #F4F0E9;
+
+    --form-input-focus-border: #A6A6A6;
+    --form-btn: #286562;
+    --form-btn-hover: rgba(59, 126, 123, 1);
+
+}

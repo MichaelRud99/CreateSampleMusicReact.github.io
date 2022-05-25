@@ -1,0 +1,13 @@
+.edit {
+    color: var(--white-almost);
+}
+
+.edit::after {
+    content: "\1F4CB";
+    font-size: 25px;
+    background-color: transparent;
+}
+
+.edit:hover {
+    color: var(--btn-close-hover);
+}

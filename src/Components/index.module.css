@@ -1,0 +1,19 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  line-height: 27px;
+  color: var(--text-color-grey);
+  font-weight: 300;
+  margin: 0%;
+  background-color: var(--white-almost);
+  background-image: url("../../public/img/backgroundImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.flex {
+  display: flex;
+  padding: 0%;
+  margin: 10px;
+}

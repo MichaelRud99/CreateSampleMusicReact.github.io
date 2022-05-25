@@ -1,0 +1,9 @@
+.btn {
+    background-color: var(--btn-reset);
+    color: var(--btn-reset-text);
+}
+
+.btn:hover {
+    background-color: var(--btn-create-hover);
+    border-color: var(--white);
+}

@@ -1,0 +1,81 @@
+.body {
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 700px;
+    height: 350px;
+    background-color: var(--form-background);
+    margin: 100px 0px 0px 700px;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+.form {
+    display: grid;
+    justify-content: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.distance {
+    text-align: left;
+    margin: 0%;
+    margin-left: 0%;
+    padding: 0%;
+    margin-left: 10px;
+    color: var(--white);
+}
+
+.add {
+    cursor: pointer;
+    padding: 3px 7px;
+    color: var(--btn-create-text);
+    background-color: var(--btn-create);
+    border: 0px;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    width: 35px;
+    height: 30px;
+    margin: 0%;
+    padding: 0%;
+    background-color: transparent;
+    border: transparent;
+}
+
+.close {
+    color: var(--white-almost);
+}
+
+.close::after {
+    content: "\2716";
+    font-size: 15px;
+}
+
+.close:hover {
+    color: var(--btn-close-hover);
+}
+
+.move{
+    width: 50px;
+    margin-left: auto;
+}
+
+.add:hover {
+    background-color: var(--btn-create-hover);
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.btnFooter {
+    display: flex;
+    margin: auto;
+    gap: 70px;
+    grid-column: span 2;
+}
