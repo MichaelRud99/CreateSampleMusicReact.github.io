@@ -1,0 +1,125 @@
+.todoapp {
+    width: 570px;
+    background: var(--white);
+    margin: 50px 0 40px 0;
+    position: relative;
+    box-shadow: 0 2px 4px 0 var(--todoapp-box-shadow-light), 0 25px 50px 0 var(--todoapp-box-shadow-dark);
+}
+
+.todoapp__frame {
+    border: 1px solid var(--grey);
+    box-sizing: border-box;
+}
+
+.todoapp__select-all {
+    text-align: center;
+    cursor: pointer;
+    width: 40px;
+    height: 46px;
+    margin: 0%;
+    border: none;
+
+    appearance: none;
+    outline: none;
+
+    transition-property: font-size, font-weight, color;
+    transition-duration: 600ms;
+    transition-delay: 0s;
+    transition-timing-function: linear;
+}
+
+.todoapp__select-all::after {
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 2;
+    content: "v";
+}
+
+.todoapp__select-all:hover {
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--btn-footer-click);
+}
+
+.todoapp__formInput {
+    width: 100%;
+}
+
+.todoapp__new-todo {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.4em;
+    cursor: pointer;
+    color: var(--black);
+    margin: 0;
+    width: 98%;
+    height: 35px;
+    border: 0;
+    padding: 6px;
+    opacity: 0.5;
+
+    transition-property: opacity;
+    transition-duration: 600ms;
+    transition-delay: 0s;
+    transition-timing-function: linear;
+}
+
+.todoapp__new-todo:focus {
+    opacity: 1;
+    outline: none;
+    color: var(--new--todo-focu);
+    background: linear-gradient(to right, var(--white), var(--new-todo-back-focus), var(--btn-footer-click));
+}
+
+.list {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+.strong {
+    width: 70px;
+    margin: 5px;
+    padding: 0%;
+}
+
+.footer__btn {
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.todoapp__btn {
+    cursor: pointer;
+    margin: 3px;
+    margin-left: auto;
+    padding: 3px 7px;
+    color: var(--grey);
+    background-color: var(--white);
+    border: 0px;
+    border: 1px solid transparent;
+}
+
+.todoapp__btn_clear-completed:hover {
+    text-decoration: underline;
+}
+
+.transition-back-border {
+    transition-property: border, background-color;
+    transition-duration: 400ms;
+    transition-delay: 0s;
+    transition-timing-function: linear;
+}
+
+.todoapp__btn_mod {
+    color: var(--white);
+    background-color: var(--btn-footer-click);
+    border: 1px solid var(--btn-footer-border);
+}
+
+.todoapp__btn_hover:hover {
+    background-color: var(--btn-footerhover);
+    border: 1px solid var(--btn-footer-click);
+}
