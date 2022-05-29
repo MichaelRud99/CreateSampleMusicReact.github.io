@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/monsegard3.github.io/static/css/main.4e97970f.css",
-    "main.js": "/monsegard3.github.io/static/js/main.c7ddcc15.js",
+    "main.css": "/monsegard3.github.io/static/css/main.c10b60f4.css",
+    "main.js": "/monsegard3.github.io/static/js/main.d40373ad.js",
     "static/media/backgroundImg.png": "/monsegard3.github.io/static/media/backgroundImg.c31d2315e64e8efdc104.png",
     "index.html": "/monsegard3.github.io/index.html",
-    "main.4e97970f.css.map": "/monsegard3.github.io/static/css/main.4e97970f.css.map",
-    "main.c7ddcc15.js.map": "/monsegard3.github.io/static/js/main.c7ddcc15.js.map"
+    "main.c10b60f4.css.map": "/monsegard3.github.io/static/css/main.c10b60f4.css.map",
+    "main.d40373ad.js.map": "/monsegard3.github.io/static/js/main.d40373ad.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e97970f.css",
-    "static/js/main.c7ddcc15.js"
+    "static/css/main.c10b60f4.css",
+    "static/js/main.d40373ad.js"
   ]
 }
