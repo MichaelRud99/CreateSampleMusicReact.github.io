@@ -51,7 +51,7 @@ const PatternTr = ({
                   }
                />
                <Route
-                  path={"/"}
+                  path="/monsegard3.github.io/"
                   element={
                      <>
                         <td>
