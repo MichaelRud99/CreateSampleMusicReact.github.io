@@ -7,7 +7,7 @@ const PreView = ({ track }) => {
       <>
          <Link
             className={viewCss.btn + " " + viewCss.fastView}
-            to={`/View/${track}`}
+            to={`/monsegard3.github.io/View/${track}`}
          ></Link>
          <Outlet />
       </>

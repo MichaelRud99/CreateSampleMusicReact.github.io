@@ -9,7 +9,7 @@ const PreEdit = ({ track, setEdit }) => {
          <Link
             onClick={() => setEdit(false)}
             className={patternForm.btn + " " + editCss.edit}
-            to={`/Edit/${track}`}
+            to={`/monsegard3.github.io/Edit/${track}`}
          ></Link>
          <Outlet />
       </>
