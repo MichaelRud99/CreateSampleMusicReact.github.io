@@ -10,7 +10,6 @@
     margin: 100px 0px 0px 700px;
     padding: 10px;
     border-radius: 20px;
-
 }
 
 .form {
@@ -62,7 +61,7 @@
     color: var(--btn-close-hover);
 }
 
-.move{
+.move {
     width: 50px;
     margin-left: auto;
 }

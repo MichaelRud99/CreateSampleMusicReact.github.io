@@ -1,0 +1,18 @@
+.list__label_mod {
+    color: var(--completed-task-color);
+    text-decoration: line-through;
+}
+
+.list__span_mod {
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-bottom: auto;
+    background-image: url("../../../../public/img/badges/Rectangl-36-Stroke.svg");
+}
+
+.todoapp__btn_mod {
+    color: var(--white);
+    background-color: var(--btn-footer-click);
+    border: 1px solid var(--btn-footer-border);
+}

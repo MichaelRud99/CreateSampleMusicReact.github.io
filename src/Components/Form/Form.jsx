@@ -16,6 +16,8 @@ const Form = ({
    setAlbom,
    validFail,
    setValidFail,
+   edit,
+   setEdit,
 }) => {
    const submit = () => {
       if (
@@ -26,7 +28,6 @@ const Form = ({
       ) {
          let tmp = {};
          tmp.id = Math.round(Math.random() * 10000);
-/*          tmp.search = false; */
          tmp.author = author;
          tmp.dataRelease = dataRelease;
          tmp.track = track;
@@ -59,6 +60,8 @@ const Form = ({
          validFail={validFail}
          setValidFail={setValidFail}
          submit={submit}
+         edit={edit}
+         setEdit={setEdit}
       />
    );
 };

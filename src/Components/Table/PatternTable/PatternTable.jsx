@@ -6,6 +6,7 @@ import PatternTr from "../PatternTr/PatternTr";
 import Search from "../Search/Search";
 import Reset from "../Reset/Reset";
 import readStorage from "../../../utils/readStorage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const PatternTable = ({
    setStorage,
@@ -21,44 +22,65 @@ const PatternTable = ({
    setAlbom,
    validFail,
    setValidFail,
+   edit,
+   setEdit,
 }) => {
    const storage = readStorage("storage");
    const [checkSearch, setCheckSearch] = useState("all");
    const [searchValue, setSearchValue] = useState("");
    const [storageSearch, setStorageSearch] = useState("");
 
+   /* path="/monsegard3.github.io/" для просмотора и перехода по роуту на github.io*/
+
    return (
       <div className={table.frame}>
-         <div className={table.flex}>
-            <Search
-               setCheckSearch={setCheckSearch}
-               searchValue={searchValue}
-               setSearchValue={setSearchValue}
-               storageSearch={storageSearch}
-               setStorageSearch={setStorageSearch}
-            />
-            <div className={table.divBtn}>
-               {(checkSearch === "found" || checkSearch === "notFound") && (
-                  <Reset storage={storage} setCheckSearch={setCheckSearch} />
-               )}
-               <DeleteAll setStorage={setStorage} />
-               <AddMusic
-                  storage={storage}
-                  setOpen={setOpen}
-                  open={open}
-                  author={author}
-                  setAuthor={setAuthor}
-                  dataRelease={dataRelease}
-                  setDataRelease={setDataRelease}
-                  track={track}
-                  setTrack={setTrack}
-                  album={album}
-                  setAlbom={setAlbom}
-                  validFail={validFail}
-                  setValidFail={setValidFail}
+         <BrowserRouter>
+            <Routes>
+               <Route
+                  path="/monsegard3.github.io/"
+                  element={
+                     <div className={table.flex}>
+                        <Search
+                           setCheckSearch={setCheckSearch}
+                           storageSearch={storageSearch}
+                           searchValue={searchValue}
+                           setSearchValue={setSearchValue}
+                           setStorageSearch={setStorageSearch}
+                        />
+
+                        <div className={table.divBtn}>
+                           {(checkSearch === "found" ||
+                              checkSearch === "notFound") && (
+                              <Reset
+                                 storage={storage}
+                                 setCheckSearch={setCheckSearch}
+                                 setSearchValue={setSearchValue}
+                              />
+                           )}
+                           <DeleteAll setStorage={setStorage} />
+                           <AddMusic
+                              storage={storage}
+                              setOpen={setOpen}
+                              open={open}
+                              author={author}
+                              setAuthor={setAuthor}
+                              dataRelease={dataRelease}
+                              setDataRelease={setDataRelease}
+                              track={track}
+                              setTrack={setTrack}
+                              album={album}
+                              setAlbom={setAlbom}
+                              validFail={validFail}
+                              setValidFail={setValidFail}
+                              edit={edit}
+                              setEdit={setEdit}
+                           />
+                        </div>
+                     </div>
+                  }
                />
-            </div>
-         </div>
+            </Routes>
+         </BrowserRouter>
 
          <table className={table.table}>
             <thead>
@@ -72,13 +94,13 @@ const PatternTable = ({
                   <th className={table.delete}>Изменить</th>
                </tr>
             </thead>
+
             <tbody>
                {checkSearch === "all" &&
                   storage.map((value, index) => {
                      return (
                         <PatternTr
                            storage={storage}
-                           setStorage={setStorage}
                            setOpen={setOpen}
                            index={index}
                            key={value.id}
@@ -93,6 +115,8 @@ const PatternTable = ({
                            setDataRelease={setDataRelease}
                            validFail={validFail}
                            setValidFail={setValidFail}
+                           edit={edit}
+                           setEdit={setEdit}
                         />
                      );
                   })}
@@ -102,7 +126,6 @@ const PatternTable = ({
                      return (
                         <PatternTr
                            storage={storage}
-                           setStorage={setStorage}
                            setOpen={setOpen}
                            index={index}
                            key={value.id}
@@ -117,6 +140,8 @@ const PatternTable = ({
                            setDataRelease={setDataRelease}
                            validFail={validFail}
                            setValidFail={setValidFail}
+                           edit={edit}
+                           setEdit={setEdit}
                         />
                      );
                   })}

@@ -12,6 +12,7 @@ const Main = () => {
    const [track, setTrack] = useState("");
    const [album, setAlbom] = useState("");
    const [validFail, setValidFail] = useState(false);
+   const [edit, setEdit] = useState(true);
 
    return (
       <>
@@ -34,6 +35,8 @@ const Main = () => {
                   setAlbom={setAlbom}
                   validFail={validFail}
                   setValidFail={setValidFail}
+                  edit={edit}
+                  setEdit={setEdit}
                />
             </section>
          ) : (
@@ -55,6 +58,8 @@ const Main = () => {
                   setAlbom={setAlbom}
                   validFail={validFail}
                   setValidFail={setValidFail}
+                  edit={edit}
+                  setEdit={setEdit}
                />
             </section>
          )}

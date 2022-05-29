@@ -17,6 +17,8 @@ const AddMusic = ({
    setAlbom,
    validFail,
    setValidFail,
+   edit,
+   setEdit,
 }) => {
    return (
       <>
@@ -41,6 +43,8 @@ const AddMusic = ({
                setAlbom={setAlbom}
                validFail={validFail}
                setValidFail={setValidFail}
+               edit={edit}
+               setEdit={setEdit}
             />
          )}
       </>

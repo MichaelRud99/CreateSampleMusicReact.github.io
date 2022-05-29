@@ -17,6 +17,8 @@ const BtnCreate = ({
    setAlbom,
    validFail,
    setValidFail,
+   edit,
+   setEdit,
 }) => {
    return (
       <>
@@ -41,6 +43,8 @@ const BtnCreate = ({
                setAlbom={setAlbom}
                validFail={validFail}
                setValidFail={setValidFail}
+               edit={edit}
+               setEdit={setEdit}
             />
          )}
       </>

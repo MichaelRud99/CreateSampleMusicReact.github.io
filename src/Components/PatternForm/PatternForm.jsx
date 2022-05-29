@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import patternForm from "./patternForm.module.css";
 import main from "../Main/main.module.css";
 import validationText from "../../utils/validationText/validationText";
@@ -20,14 +21,24 @@ const PatternForm = ({
    validFail,
    setValidFail,
    submit,
+   edit,
+   setEdit,
 }) => {
    return (
       <section className={patternForm.body}>
          <div className={patternForm.move}>
-            <button
-               onClick={() => setOpen(false)}
-               className={patternForm.btn + " " + patternForm.close}
-            ></button>
+            {edit === true ? (
+               <button
+                  onClick={() => setOpen(false)}
+                  className={patternForm.btn + " " + patternForm.close}
+               ></button>
+            ) : (
+               <Link
+                  onClick={() => setEdit(true)}
+                  className={patternForm.btn + " " + patternForm.close}
+                  to="/monsegard3.github.io/"
+               ></Link>
+            )}
          </div>
          <form className={patternForm.form}>
             <div>
@@ -78,12 +89,22 @@ const PatternForm = ({
             </div>
 
             <div className={patternForm.btnFooter}>
-               <input
-                  onClick={submit}
-                  className={main.btn + " " + patternForm.add}
-                  defaultValue="добавить"
-                  type="button"
-               ></input>
+               {edit === true ? (
+                  <input
+                     onClick={submit}
+                     className={main.btn + " " + patternForm.add}
+                     defaultValue="добавить"
+                     type="button"
+                  ></input>
+               ) : (
+                  <Link
+                     onClick={submit}
+                     className={main.btn + " " + patternForm.add}
+                     to="/monsegard3.github.io/"
+                  >
+                     Ввод
+                  </Link>
+               )}
             </div>
          </form>
       </section>

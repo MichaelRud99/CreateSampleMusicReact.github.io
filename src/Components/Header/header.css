@@ -1,0 +1,10 @@
+.title {
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: var(--header-title);
+    margin: 5%;
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+}
