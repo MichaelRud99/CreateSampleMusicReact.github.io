@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import table from "./table.module.css";
 import AddMusic from "../AddMusic/AddMusic";
 import DeleteAll from "../DeleteAll/DeleteAll";
@@ -6,7 +7,6 @@ import PatternTr from "../PatternTr/PatternTr";
 import Search from "../Search/Search";
 import Reset from "../Reset/Reset";
 import readStorage from "../../../utils/readStorage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const PatternTable = ({
    setStorage,
@@ -30,7 +30,7 @@ const PatternTable = ({
    const [searchValue, setSearchValue] = useState("");
    const [storageSearch, setStorageSearch] = useState("");
 
-   /* path="/monsegard3.github.io/" для просмотора и перехода по роуту на github.io*/
+   /* path="/monsegard3.github.io/" для работы с роутами на github.io*/
 
    return (
       <div className={table.frame}>
