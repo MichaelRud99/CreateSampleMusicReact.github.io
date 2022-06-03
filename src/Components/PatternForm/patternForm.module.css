@@ -29,6 +29,8 @@
 }
 
 .add {
+    width: 130px;
+    height: 30px;
     cursor: pointer;
     padding: 3px 7px;
     color: var(--btn-create-text);
@@ -36,6 +38,23 @@
     border: 0px;
     border: 1px solid var(--black);
     border-radius: 10px;
+}
+
+.change {
+    width: 130px;
+    height: 28px;
+    cursor: pointer;
+    padding: 0px 7px;
+    color: var(--white);
+    background-color: var(--btn-change);
+    border: 0px;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+}
+
+.change:hover {
+    background-color: var(--btn-change-hover);
+    border: 1px solid transparent;
 }
 
 .btn {
@@ -49,7 +68,11 @@
 }
 
 .close {
+    width: 30px;
+    height: 30px;
+    display: table-cell;
     color: var(--white-almost);
+    padding-left: 5px;
 }
 
 .close::after {
@@ -69,7 +92,7 @@
 .add:hover {
     background-color: var(--btn-create-hover);
     color: var(--white);
-    border: 1px solid var(--white);
+    border: 1px solid transparent;
 }
 
 .btnFooter {

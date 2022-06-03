@@ -64,6 +64,10 @@ th {
     border-style: solid;
 }
 
+th:nth-child(7) {
+    border-right: 0px;
+}
+
 .notFound {
     font-size: 20px;
     text-align: center;

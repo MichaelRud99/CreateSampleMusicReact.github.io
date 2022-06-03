@@ -26,8 +26,6 @@
 
     --btn-close-hover: #e94e06;
 
-    --modal-window-border: #DB9316B8;
-
     --error: rgba(228, 130, 180, 0.74);
     --error-background: rgb(235, 203, 182);
 
@@ -39,5 +37,8 @@
     --form-input-focus-border: #A6A6A6;
     --form-btn: #286562;
     --form-btn-hover: rgba(59, 126, 123, 1);
+    
+    --btn-change:rgba(122, 179, 206, 0.507);
+    --btn-change-hover:rgba(125, 170, 47, 0.945);
 
 }
