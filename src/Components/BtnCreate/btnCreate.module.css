@@ -1,5 +1,4 @@
-
-.btn{
+.btn {
     color: var(--btn-create-text);
     background-color: var(--btn-create);
     border: 0px;
@@ -7,8 +6,8 @@
     margin-top: 25px;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: var(--btn-create-hover);
     color: var(--white);
-    border:1px solid var(--white);
+    border: 1px solid var(--white);
 }

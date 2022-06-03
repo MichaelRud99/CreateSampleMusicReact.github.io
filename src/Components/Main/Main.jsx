@@ -7,11 +7,12 @@ import PatternTable from "../Table/PatternTable/PatternTable";
 const Main = () => {
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState(() => readStorage("storage"));
-   const [author, setAuthor] = useState("");
+/*    const [author, setAuthor] = useState("");
    const [dataRelease, setDataRelease] = useState("");
    const [track, setTrack] = useState("");
-   const [album, setAlbom] = useState("");
+   const [album, setAlbom] = useState(""); */
    const [validFail, setValidFail] = useState(false);
+   const [edit, setEdit] = useState(true);
 
    return (
       <>
@@ -24,16 +25,10 @@ const Main = () => {
                   storage={storage}
                   setOpen={setOpen}
                   open={isOpen}
-                  author={author}
-                  setAuthor={setAuthor}
-                  dataRelease={dataRelease}
-                  setDataRelease={setDataRelease}
-                  track={track}
-                  setTrack={setTrack}
-                  album={album}
-                  setAlbom={setAlbom}
                   validFail={validFail}
                   setValidFail={setValidFail}
+                  edit={edit}
+                  setEdit={setEdit}
                />
             </section>
          ) : (
@@ -45,16 +40,11 @@ const Main = () => {
                   setStorage={setStorage}
                   setOpen={setOpen}
                   open={isOpen}
-                  author={author}
-                  setAuthor={setAuthor}
-                  dataRelease={dataRelease}
-                  setDataRelease={setDataRelease}
-                  track={track}
-                  setTrack={setTrack}
-                  album={album}
-                  setAlbom={setAlbom}
+
                   validFail={validFail}
                   setValidFail={setValidFail}
+                  edit={edit}
+                  setEdit={setEdit}
                />
             </section>
          )}

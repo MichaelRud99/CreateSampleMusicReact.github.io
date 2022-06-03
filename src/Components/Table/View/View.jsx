@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import main from "../../Main/main.module.css";
 import viewCss from "./view.module.css";
+import { Link } from "react-router-dom";
 
 const View = ({ id, author, dataRelease, track, album }) => {
-   const [view, setView] = useState(false);
+   const [view, setView] = useState(true);
 
    return (
       <>
-         <button
-            onClick={() => setView(true)}
-            className={viewCss.btn + " " + viewCss.fastView}
-         ></button>
          {view === true && (
             <section className={viewCss.windov}>
                <div className={viewCss.flex}>
@@ -50,12 +47,15 @@ const View = ({ id, author, dataRelease, track, album }) => {
                      </div>
                   </span>
                </div>
-               <input
-                  onClick={() => setView(false)}
-                  className={main.btn + " " + viewCss.close}
-                  defaultValue="закрыть"
-                  type="button"
-               ></input>
+               <div>
+                  <Link
+                     onClick={() => setView(false)}
+                     className={main.btn + " " + viewCss.close}
+                     to="/monsegard3.github.io/"
+                  >
+                     Закрыть
+                  </Link>
+               </div>
             </section>
          )}
       </>

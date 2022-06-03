@@ -1,36 +1,38 @@
 import React from "react";
 import validation from "../validation.module.css";
+import { useDispatch } from "react-redux";
 
-const ValidText = ({ validFail, validationText, value, setValue }) => {
+const ValidText = ({
+   validFail,
+   validationText,
+   initialValue,
+   outputValue,
+   setValue,
+}) => {
+   const dispath = useDispatch();
+
    const changeValue = (event) => {
-      setValue(event.target.value);
+      dispath(setValue(event.target.value));
    };
 
    return (
       <>
-         {validFail === true && validationText(value) === false ? (
-            <>
-               <input
-                  autoFocus
-                  value={value}
-                  onChange={changeValue}
-                  type="text"
-                  className={validation.input + " " + validation.error}
-               ></input>
-               <div
-                  className={validation.distance + " " + validation.validation}
-               >
-                  <label>Используются неккоректные символы!</label>
-               </div>
-            </>
-         ) : (
-            <input
-               autoFocus
-               value={value}
-               onChange={changeValue}
-               type="text"
-               className={validation.input}
-            ></input>
+         <input
+            autoFocus
+            defaultValue={initialValue}
+            onChange={changeValue}
+            type="text"
+            className={
+               (validFail === true && validationText(outputValue) === false)
+                  ? (validation.input + " " + validation.error)
+                  : validation.input
+            }
+         ></input>
+
+         {validFail === true && validationText(outputValue) === false && (
+            <div className={validation.distance + " " + validation.validation}>
+               <label>Используются неккоректные символы!</label>
+            </div>
          )}
       </>
    );

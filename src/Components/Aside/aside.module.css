@@ -64,24 +64,6 @@ aside div {
     font-style: italic;
 }
 
-/* .quote::after {
-    content: '\201E';
-    font-size: 50px;
-    opacity: .80;
-    position: absolute;
-    bottom: 0px;
-    right: 10px;
-}
-
-.quote::before {
-    content: '';
-    font-size: 50px;
-    opacity: .90;
-    position: absolute;
-    bottom: 570px;
-    right: 320px;
-} */
-
 .p {
     margin: 0%;
     padding: 0%;

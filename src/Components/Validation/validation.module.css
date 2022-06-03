@@ -21,7 +21,6 @@
 
 .input:focus {
     outline: none;
-    color: var(--form-input-focus);
     border-color: var(--form-input-focus-border);
 }
 
