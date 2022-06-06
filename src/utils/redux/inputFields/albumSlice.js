@@ -10,6 +10,6 @@ export const albumSlice = createSlice({
    },
 });
 
-export const { enterAlbum, clear } = albumSlice.actions;
+export const { enterAlbum } = albumSlice.actions;
 
 export default albumSlice.reducer;

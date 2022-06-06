@@ -7,12 +7,6 @@ import PatternTable from "../Table/PatternTable/PatternTable";
 const Main = () => {
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState(() => readStorage("storage"));
-/*    const [author, setAuthor] = useState("");
-   const [dataRelease, setDataRelease] = useState("");
-   const [track, setTrack] = useState("");
-   const [album, setAlbom] = useState(""); */
-   const [validFail, setValidFail] = useState(false);
-   const [edit, setEdit] = useState(true);
 
    return (
       <>
@@ -25,10 +19,6 @@ const Main = () => {
                   storage={storage}
                   setOpen={setOpen}
                   open={isOpen}
-                  validFail={validFail}
-                  setValidFail={setValidFail}
-                  edit={edit}
-                  setEdit={setEdit}
                />
             </section>
          ) : (
@@ -37,14 +27,10 @@ const Main = () => {
                   Ваша подборка музыкальных композиций
                </div>
                <PatternTable
+                  storage={storage}
                   setStorage={setStorage}
                   setOpen={setOpen}
                   open={isOpen}
-
-                  validFail={validFail}
-                  setValidFail={setValidFail}
-                  edit={edit}
-                  setEdit={setEdit}
                />
             </section>
          )}

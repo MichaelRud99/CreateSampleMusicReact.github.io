@@ -6,18 +6,13 @@ import DeleteAll from "../DeleteAll/DeleteAll";
 import PatternTr from "../PatternTr/PatternTr";
 import Search from "../Search/Search";
 import Reset from "../Reset/Reset";
-import readStorage from "../../../utils/readStorage";
 
 const PatternTable = ({
+   storage,
    setStorage,
    setOpen,
    open,
-   validFail,
-   setValidFail,
-   edit,
-   setEdit,
 }) => {
-   const storage = readStorage("storage");
    const [checkSearch, setCheckSearch] = useState("all");
    const [searchValue, setSearchValue] = useState("");
    const [storageSearch, setStorageSearch] = useState("");
@@ -54,10 +49,6 @@ const PatternTable = ({
                               storage={storage}
                               setOpen={setOpen}
                               open={open}
-                              validFail={validFail}
-                              setValidFail={setValidFail}
-                              edit={edit}
-                              setEdit={setEdit}
                            />
                         </div>
                      </div>
@@ -85,18 +76,14 @@ const PatternTable = ({
                      return (
                         <PatternTr
                            storage={storage}
-                           setOpen={setOpen}
-                           index={index}
+                           setStorage={setStorage}
                            key={value.id}
                            id={value.id}
+                           index={index}
                            author={value.author}
                            track={value.track}
                            album={value.album}
                            dataRelease={value.dataRelease}
-                           validFail={validFail}
-                           setValidFail={setValidFail}
-                           edit={edit}
-                           setEdit={setEdit}
                         />
                      );
                   })}
@@ -106,18 +93,14 @@ const PatternTable = ({
                      return (
                         <PatternTr
                            storage={storage}
-                           setOpen={setOpen}
-                           index={index}
+                           setStorage={setStorage}
                            key={value.id}
                            id={value.id}
+                           index={index}
                            author={value.author}
                            track={value.track}
                            album={value.album}
                            dataRelease={value.dataRelease}
-                           validFail={validFail}
-                           setValidFail={setValidFail}
-                           edit={edit}
-                           setEdit={setEdit}
                         />
                      );
                   })}

@@ -10,7 +10,8 @@ import { enterAuthor } from "../../utils/redux/inputFields/authorSlice";
 import { enterAlbum } from "../../utils/redux/inputFields/albumSlice";
 import { enterDataRelease } from "../../utils/redux/inputFields/dataReleaseSlice";
 import { enterTrack } from "../../utils/redux/inputFields/trackSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { editFalse, editTrue } from "../../utils/redux/editSlice";
 
 const PatternForm = ({
    setOpen,
@@ -18,27 +19,26 @@ const PatternForm = ({
    dataRelease,
    track,
    album,
-   validFail,
    submit,
-   edit,
-   setEdit,
 }) => {
    const outputAuthor = useSelector((state) => state.author.value);
    const outputDataRelease = useSelector((state) => state.dataRelease.value);
    const outputTrack = useSelector((state) => state.track.value);
    const outputAlbum = useSelector((state) => state.album.value);
+   const edit = useSelector((state) => state.edit.edit);
+   const dispatch = useDispatch();
 
    return (
       <section className={patternForm.body}>
          <div className={patternForm.move}>
-            {edit === true ? (
+            {edit === false ? (
                <button
                   onClick={() => setOpen(false)}
                   className={patternForm.btn + " " + patternForm.close}
                ></button>
             ) : (
                <Link
-                  onClick={() => setEdit(true)}
+                  onClick={() => dispatch(editFalse())}
                   className={patternForm.btn + " " + patternForm.close}
                   to="/monsegard3.github.io/"
                ></Link>
@@ -50,7 +50,6 @@ const PatternForm = ({
                   <label>Исполнитель</label>
                </div>
                <ValidText
-                  validFail={validFail}
                   validationText={validationText}
                   initialValue={author}
                   outputValue={outputAuthor}
@@ -63,7 +62,6 @@ const PatternForm = ({
                   <label>Дата выпуска</label>
                </div>
                <ValidDate
-                  validFail={validFail}
                   validationDate={validationDate}
                   initialValue={dataRelease}
                   outputValue={outputDataRelease}
@@ -75,7 +73,6 @@ const PatternForm = ({
                   <label>название композиции</label>
                </div>
                <ValidText
-                  validFail={validFail}
                   validationText={validationText}
                   initialValue={track}
                   outputValue={outputTrack}
@@ -88,7 +85,6 @@ const PatternForm = ({
                   <label>Альбом</label>
                </div>
                <ValidText
-                  validFail={validFail}
                   validationText={validationText}
                   initialValue={album}
                   outputValue={outputAlbum}
@@ -97,7 +93,7 @@ const PatternForm = ({
             </div>
 
             <div className={patternForm.btnFooter}>
-               {edit === true ? (
+               {edit === false ? (
                   <input
                      onClick={submit}
                      className={main.btn + " " + patternForm.add}
@@ -107,7 +103,13 @@ const PatternForm = ({
                ) : (
                   <Link
                      onClick={submit}
-                     className={main.btn + " " + patternForm.add}
+                     className={
+                        main.btn +
+                        " " +
+                        patternForm.add +
+                        " " +
+                        patternForm.btnChange
+                     }
                      to="/monsegard3.github.io/"
                   >
                      Изменить

@@ -10,6 +10,6 @@ export const authorSlice = createSlice({
    },
 });
 
-export const { enterAuthor, clear } = authorSlice.actions;
+export const { enterAuthor} = authorSlice.actions;
 
 export default authorSlice.reducer;

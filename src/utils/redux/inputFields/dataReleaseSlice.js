@@ -10,6 +10,6 @@ export const dataReleaseSlice = createSlice({
    },
 });
 
-export const { enterDataRelease, clear } = dataReleaseSlice.actions;
+export const { enterDataRelease } = dataReleaseSlice.actions;
 
 export default dataReleaseSlice.reducer;

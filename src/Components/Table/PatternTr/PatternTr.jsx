@@ -8,17 +8,13 @@ import PreEdit from "../Edit/PreEdit";
 
 const PatternTr = ({
    storage,
-   setOpen,
+   setStorage,
    index,
    id,
    author,
    track,
    album,
    dataRelease,
-   validFail,
-   setValidFail,
-   edit,
-   setEdit,
 }) => {
    return (
       <tr>
@@ -37,28 +33,7 @@ const PatternTr = ({
                            <PreView track={track} />
                         </td>
                         <td>
-                           <PreEdit
-                              author={author}
-                              track={track}
-                              setEdit={setEdit}
-                           />
-                        </td>
-                     </>
-                  }
-               />
-               <Route
-                  path="/monsegard3.github.io/"
-                  element={
-                     <>
-                        <td>
-                           <PreView track={track} />
-                        </td>
-                        <td>
-                           <PreEdit
-                              author={author}
-                              track={track}
-                              setEdit={setEdit}
-                           />
+                           <PreEdit track={track} />
                         </td>
                      </>
                   }
@@ -80,16 +55,12 @@ const PatternTr = ({
                      element={
                         <EditForm
                            storage={storage}
-                           setOpen={setOpen}
+                           setStorage={setStorage}
+                           index={index}
                            author={author}
                            dataRelease={dataRelease}
                            track={track}
                            album={album}
-                           validFail={validFail}
-                           setValidFail={setValidFail}
-                           index={index}
-                           edit={edit}
-                           setEdit={setEdit}
                         />
                      }
                   ></Route>

@@ -6,14 +6,11 @@ import { enterAuthor } from "../../utils/redux/inputFields/authorSlice";
 import { enterTrack } from "../../utils/redux/inputFields/trackSlice";
 import { enterAlbum } from "../../utils/redux/inputFields/albumSlice";
 import { enterDataRelease } from "../../utils/redux/inputFields/dataReleaseSlice";
+import { validFalse } from "../../utils/redux/ValidFailSlice";
 
 const CreateForm = ({
    storage,
    setOpen,
-   validFail,
-   setValidFail,
-   edit,
-   setEdit,
 }) => {
    const dispatch = useDispatch();
    const enter = useSelector((state) => state);
@@ -22,7 +19,7 @@ const CreateForm = ({
    const album = enter.album.value;
    const dataRelease = enter.dataRelease.value;
 
-   const submit = () => {
+   const submit = (event) => {
       if (validation(author, track, album, dataRelease) === true) {
          let tmp = {};
          tmp.id = Math.round(Math.random() * 10000);
@@ -39,9 +36,9 @@ const CreateForm = ({
          dispatch(enterDataRelease(undefined));
 
          setOpen(false);
-         setValidFail(false);
       } else {
-         setValidFail(true);
+         dispatch(validFalse());
+         event.preventDefault();
       }
    };
 
@@ -49,12 +46,7 @@ const CreateForm = ({
       <PatternForm
          storage={storage}
          setOpen={setOpen}
-         validFail={validFail}
-         setValidFail={setValidFail}
          submit={submit}
-         edit={edit}
-         setEdit={setEdit}
-         enter={enter}
       />
    );
 };

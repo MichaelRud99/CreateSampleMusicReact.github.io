@@ -7,10 +7,6 @@ const BtnCreate = ({
    storage,
    setOpen,
    open,
-   validFail,
-   setValidFail,
-   edit,
-   setEdit,
 }) => {
    return (
       <>
@@ -25,10 +21,6 @@ const BtnCreate = ({
                storage={storage}
                setOpen={setOpen}
                open={open}
-               validFail={validFail}
-               setValidFail={setValidFail}
-               edit={edit}
-               setEdit={setEdit}
             />
          )}
       </>

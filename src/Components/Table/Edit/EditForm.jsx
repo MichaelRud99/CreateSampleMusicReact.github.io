@@ -6,18 +6,19 @@ import { enterAuthor } from "../../../utils/redux/inputFields/authorSlice";
 import { enterTrack } from "../../../utils/redux/inputFields/trackSlice";
 import { enterAlbum } from "../../../utils/redux/inputFields/albumSlice";
 import { enterDataRelease } from "../../../utils/redux/inputFields/dataReleaseSlice";
+import { validFalse } from "../../../utils/redux/ValidFailSlice";
+import { editFalse } from "../../../utils/redux/editSlice";
+
+import readStorage from "../../../utils/readStorage";
 
 const EditForm = ({
    storage,
+   setStorage,
    author,
    dataRelease,
    track,
    album,
-   validFail,
-   setValidFail,
    index,
-   edit,
-   setEdit,
 }) => {
    const dispatch = useDispatch();
    const enter = useSelector((state) => state);
@@ -42,16 +43,17 @@ const EditForm = ({
             editDataRelease,
             dataRelease
          );
+
          localStorage.setItem("storage", JSON.stringify(storage));
-         setEdit(true);
-         setValidFail(false);
+         setStorage(readStorage("storage"));
 
          dispatch(enterAuthor(undefined));
          dispatch(enterTrack(undefined));
          dispatch(enterAlbum(undefined));
          dispatch(enterDataRelease(undefined));
+         dispatch(editFalse());
       } else {
-         setValidFail(true);
+         dispatch(validFalse());
          event.preventDefault();
       }
    };
@@ -60,16 +62,11 @@ const EditForm = ({
       <>
          <PatternForm
             storage={storage}
-            setOpen={setEdit}
             author={author}
             dataRelease={dataRelease}
             track={track}
             album={album}
-            validFail={validFail}
-            setValidFail={setValidFail}
             submit={submit}
-            edit={edit}
-            setEdit={setEdit}
          />
       </>
    );

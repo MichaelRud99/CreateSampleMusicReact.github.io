@@ -10,6 +10,6 @@ export const trackSlice = createSlice({
    },
 });
 
-export const { enterTrack, clear } = trackSlice.actions;
+export const { enterTrack } = trackSlice.actions;
 
 export default trackSlice.reducer;
