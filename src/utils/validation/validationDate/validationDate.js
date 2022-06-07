@@ -1,5 +1,5 @@
 const validationDate = (value) => {
-   if (value === "") {
+   if (value === undefined || value==="") {
       return false;
    } else {
       return true;

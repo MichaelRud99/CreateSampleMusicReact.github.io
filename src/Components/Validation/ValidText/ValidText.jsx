@@ -1,37 +1,42 @@
 import React from "react";
 import validation from "../validation.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import editValidation from "../../../utils/validation/editValidation";
 
-const ValidText = ({ validFail, validationText, value, setValue }) => {
+const ValidText = ({ validationText, initialValue, outputValue, setValue }) => {
+   const dispath = useDispatch();
+   const edit = useSelector((state) => state.edit.edit);
+   const validFail = useSelector((state) => state.validFail.valid);
+
+   if (edit === true) {
+      outputValue = editValidation(outputValue, initialValue);
+   }
+
    const changeValue = (event) => {
-      setValue(event.target.value);
+      dispath(setValue(event.target.value));
    };
 
    return (
       <>
-         {validFail === true && validationText(value) === false ? (
-            <>
-               <input
-                  autoFocus
-                  value={value}
-                  onChange={changeValue}
-                  type="text"
-                  className={validation.input + " " + validation.error}
-               ></input>
+         <input
+            defaultValue={initialValue}
+            onChange={changeValue}
+            type="text"
+            className={
+               validationText(outputValue) === false && validFail === false
+                  ? validation.input + " " + validation.error
+                  : validation.input
+            }
+         ></input>
+         <>
+            {validationText(outputValue) === false && validFail === false && (
                <div
                   className={validation.distance + " " + validation.validation}
                >
                   <label>Используются неккоректные символы!</label>
                </div>
-            </>
-         ) : (
-            <input
-               autoFocus
-               value={value}
-               onChange={changeValue}
-               type="text"
-               className={validation.input}
-            ></input>
-         )}
+            )}
+         </>
       </>
    );
 };

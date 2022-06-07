@@ -1,20 +1,12 @@
 import React from "react";
 import main from "../../Main/main.module.css";
-import Form from "../../Form/Form";
+import CreateForm from "../../CreateForm/CreateForm";
 import addMusic from "./addMusic.module.css";
 
 const AddMusic = ({
    storage,
    setOpen,
    open,
-   author,
-   setAuthor,
-   dataRelease,
-   setDataRelease,
-   track,
-   setTrack,
-   album,
-   setAlbom,
    validFail,
    setValidFail,
    edit,
@@ -29,18 +21,10 @@ const AddMusic = ({
             defaultValue="добавить"
          ></input>
          {open === true && (
-            <Form
+            <CreateForm
                storage={storage}
                setOpen={setOpen}
                open={open}
-               author={author}
-               setAuthor={setAuthor}
-               dataRelease={dataRelease}
-               setDataRelease={setDataRelease}
-               track={track}
-               setTrack={setTrack}
-               album={album}
-               setAlbom={setAlbom}
                validFail={validFail}
                setValidFail={setValidFail}
                edit={edit}

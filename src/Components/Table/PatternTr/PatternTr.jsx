@@ -1,28 +1,20 @@
 import React from "react";
 import patternTr from "./patternTr.module.css";
 import View from "../View/View";
-import Edit from "../Edit/Edit";
+import EditForm from "../Edit/EditForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PreView from "../View/PreView";
 import PreEdit from "../Edit/PreEdit";
 
 const PatternTr = ({
    storage,
-   setOpen,
+   setStorage,
    index,
    id,
    author,
-   setAuthor,
-   dataRelease,
-   setDataRelease,
    track,
-   setTrack,
    album,
-   setAlbom,
-   validFail,
-   setValidFail,
-   edit,
-   setEdit,
+   dataRelease,
 }) => {
    return (
       <tr>
@@ -41,28 +33,7 @@ const PatternTr = ({
                            <PreView track={track} />
                         </td>
                         <td>
-                           <PreEdit
-                              author={author}
-                              track={track}
-                              setEdit={setEdit}
-                           />
-                        </td>
-                     </>
-                  }
-               />
-               <Route
-                  path="/monsegard3.github.io/"
-                  element={
-                     <>
-                        <td>
-                           <PreView track={track} />
-                        </td>
-                        <td>
-                           <PreEdit
-                              author={author}
-                              track={track}
-                              setEdit={setEdit}
-                           />
+                           <PreEdit track={track} />
                         </td>
                      </>
                   }
@@ -82,22 +53,14 @@ const PatternTr = ({
                   <Route
                      path="Edit/:lang"
                      element={
-                        <Edit
+                        <EditForm
                            storage={storage}
-                           setOpen={setOpen}
-                           author={author}
-                           setAuthor={setAuthor}
-                           dataRelease={dataRelease}
-                           setDataRelease={setDataRelease}
-                           track={track}
-                           setTrack={setTrack}
-                           album={album}
-                           setAlbom={setAlbom}
-                           validFail={validFail}
-                           setValidFail={setValidFail}
+                           setStorage={setStorage}
                            index={index}
-                           edit={edit}
-                           setEdit={setEdit}
+                           author={author}
+                           dataRelease={dataRelease}
+                           track={track}
+                           album={album}
                         />
                      }
                   ></Route>
