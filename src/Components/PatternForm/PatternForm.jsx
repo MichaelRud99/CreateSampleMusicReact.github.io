@@ -11,7 +11,8 @@ import { enterAlbum } from "../../utils/redux/inputFields/albumSlice";
 import { enterDataRelease } from "../../utils/redux/inputFields/dataReleaseSlice";
 import { enterTrack } from "../../utils/redux/inputFields/trackSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { editFalse, editTrue } from "../../utils/redux/editSlice";
+import { editFalse } from "../../utils/redux/editSlice";
+import { validTrue } from "../../utils/redux/ValidFailSlice";
 
 const PatternForm = ({
    setOpen,
@@ -28,6 +29,11 @@ const PatternForm = ({
    const edit = useSelector((state) => state.edit.edit);
    const dispatch = useDispatch();
 
+   const editClose = () => {
+      dispatch(editFalse());
+      dispatch(validTrue());
+   };
+
    return (
       <section className={patternForm.body}>
          <div className={patternForm.move}>
@@ -38,7 +44,7 @@ const PatternForm = ({
                ></button>
             ) : (
                <Link
-                  onClick={() => dispatch(editFalse())}
+                  onClick={editClose}
                   className={patternForm.btn + " " + patternForm.close}
                   to="/monsegard3.github.io/"
                ></Link>

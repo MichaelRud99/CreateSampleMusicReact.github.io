@@ -3,11 +3,7 @@ import btnCreate from "./btnCreate.module.css";
 import main from "../Main/main.module.css";
 import CreateForm from "../CreateForm/CreateForm";
 
-const BtnCreate = ({
-   storage,
-   setOpen,
-   open,
-}) => {
+const BtnCreate = ({ storage, setOpen, open }) => {
    return (
       <>
          <input
@@ -17,11 +13,7 @@ const BtnCreate = ({
             type="button"
          ></input>
          {open === true && (
-            <CreateForm
-               storage={storage}
-               setOpen={setOpen}
-               open={open}
-            />
+            <CreateForm storage={storage} setOpen={setOpen} open={open} />
          )}
       </>
    );

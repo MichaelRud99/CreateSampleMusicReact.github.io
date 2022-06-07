@@ -7,12 +7,12 @@ export const validFailSlice = createSlice({
       validTrue: (state) => {
          state.valid = true;
       },
-      validFalse:(state)=>{
-          state.valid=false
-      }
+      validFalse: (state) => {
+         state.valid = false;
+      },
    },
 });
 
-export const { validTrue,validFalse } = validFailSlice.actions;
+export const { validTrue, validFalse } = validFailSlice.actions;
 
 export default validFailSlice.reducer;
