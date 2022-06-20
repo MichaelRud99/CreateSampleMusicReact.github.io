@@ -52,6 +52,7 @@ const EditForm = ({
          dispatch(enterAlbum(undefined));
          dispatch(enterDataRelease(undefined));
          dispatch(editFalse());
+         dispatch({ type: "edit", index });
       } else {
          dispatch(validFalse());
          event.preventDefault();

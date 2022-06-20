@@ -6,13 +6,26 @@ import dataReleaseSlice from "./inputFields/dataReleaseSlice";
 import trackSlice from "./inputFields/trackSlice";
 import ValidFailSlice from "./ValidFailSlice";
 
-export default configureStore({
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./saga/saga";
+import reducers from "./reducer/reducer";
+
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = configureStore({
    reducer: {
       author: authorSlice,
       dataRelease: dataReleaseSlice,
       track: trackSlice,
       album: albumSlice,
       edit: editSlice,
-      validFail: ValidFailSlice
+      validFail: ValidFailSlice,
+      reducers,
    },
+
+   middleware:[sagaMiddleware]
 });
+sagaMiddleware.run(rootSaga);
+
+export default store;

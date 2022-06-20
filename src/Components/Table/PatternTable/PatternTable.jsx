@@ -6,13 +6,10 @@ import DeleteAll from "../DeleteAll/DeleteAll";
 import PatternTr from "../PatternTr/PatternTr";
 import Search from "../Search/Search";
 import Reset from "../Reset/Reset";
+import readStorage from "../../../utils/readStorage";
 
-const PatternTable = ({
-   storage,
-   setStorage,
-   setOpen,
-   open,
-}) => {
+const PatternTable = ({storage, setStorage, setOpen, open }) => {
+
    const [checkSearch, setCheckSearch] = useState("all");
    const [searchValue, setSearchValue] = useState("");
    const [storageSearch, setStorageSearch] = useState("");

@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux/";
 import main from "./main.module.css";
 import BtnCreate from "../BtnCreate";
 import readStorage from "../../utils/readStorage";
 import PatternTable from "../Table/PatternTable/PatternTable";
 
 const Main = () => {
+   const dispatch = useDispatch();
+   const store = useSelector((store) => store.reducers);
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState(() => readStorage("storage"));
+
+   useEffect(() => {
+      dispatch({ type: "readData" });
+      if (store.data.length) setStorage(store.data);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [store.data.length]);
 
    return (
       <>
@@ -15,11 +24,7 @@ const Main = () => {
                <h1 className={main.title}>
                   Создайте свою подборку музыкальных произведений
                </h1>
-               <BtnCreate
-                  storage={storage}
-                  setOpen={setOpen}
-                  open={isOpen}
-               />
+               <BtnCreate storage={storage} setOpen={setOpen} open={isOpen} />
             </section>
          ) : (
             <section className={main.section}>

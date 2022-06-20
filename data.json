@@ -1,0 +1,84 @@
+{
+  "storage": [
+    {
+      "id": "5038",
+      "author": "добавить",
+      "dataRelease": "2022-06-16",
+      "track": "добавить1",
+      "album": "добавить1"
+    },
+    {
+      "id": "2397",
+      "author": "добавить",
+      "dataRelease": "2022-06-07",
+      "track": "добавить3",
+      "album": "добавить4"
+    },
+    {
+      "id": "3351",
+      "author": "BLACKPINK",
+      "dataRelease": "2020-10-02",
+      "track": "PRETTY SAVAGE",
+      "album": "THE ALBUM"
+    },
+    {
+      "id": "103739",
+      "author": "BLACKPINK",
+      "dataRelease": "2020-06-26",
+      "track": "How You Like That",
+      "album": "THE ALBUM"
+    },
+    {
+      "id": "2186",
+      "author": "BLACKPINK",
+      "dataRelease": "2019-04-04",
+      "track": "KILL THIS LOVE",
+      "album": "KILL THIS LOVE"
+    },
+    {
+      "id": "115",
+      "author": "KDA",
+      "dataRelease": "2018-11-03",
+      "track": "POP STARS",
+      "album": "POP STARS"
+    },
+    {
+      "id": "1055",
+      "author": "KDA",
+      "dataRelease": "2020-10-28",
+      "track": "MORE",
+      "album": "ALL OUT"
+    },
+    {
+      "id": "902",
+      "author": "дора",
+      "dataRelease": "2019-12-22",
+      "track": "ДОРАДУРА",
+      "album": "ДОРАДУРА"
+    },
+    {
+      "id": "1129",
+      "author": "Tessa Violet",
+      "dataRelease": "2019-01-04",
+      "track": "Crush",
+      "album": "Crush"
+    },
+    {
+      "id": "1027",
+      "author": "The Weeknd",
+      "dataRelease": "2021-02-05",
+      "track": "Blinding Lights",
+      "album": "The Highlights"
+    },
+    {
+      "id": "2858",
+      "author": "The Weeknd",
+      "dataRelease": "2020-03-20",
+      "track": "Faith",
+      "album": "After House"
+    }
+  ],
+  "profile": {
+    "name": "M.R."
+  }
+}
