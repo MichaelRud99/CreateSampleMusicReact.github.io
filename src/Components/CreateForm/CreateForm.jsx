@@ -26,13 +26,11 @@ const CreateForm = ({ storage, setOpen }) => {
          tmp.track = track;
          tmp.album = album;
          storage[storage.length] = tmp;
-         localStorage.setItem("storage", JSON.stringify(storage));
-
          dispatch(enterAuthor(undefined));
          dispatch(enterTrack(undefined));
          dispatch(enterAlbum(undefined));
          dispatch(enterDataRelease(undefined));
-         dispatch({ type: "Submit" });
+         dispatch({ type: "Submit",storage });
          setOpen(false);
       } else {
          dispatch(validFalse());

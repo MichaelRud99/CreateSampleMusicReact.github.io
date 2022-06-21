@@ -9,7 +9,7 @@ const DeleteAll = ({ setStorage }) => {
 
    const delet = () => {
       localStorage.removeItem("storage");
-      setStorage(readStorage("storage"));
+      setStorage(()=>readStorage("storage"));
       dispatch({ type: "clear" });
    };
    return (

@@ -13,7 +13,10 @@ const Main = () => {
 
    useEffect(() => {
       dispatch({ type: "readData" });
-      if (store.data.length) setStorage(store.data);
+      if (store.data.length > 0) {
+         setStorage(store.data);
+         localStorage.setItem("storage", JSON.stringify(store.data));
+      }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [store.data.length]);
 
