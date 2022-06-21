@@ -1,15 +1,13 @@
 import { put, call, takeLatest } from "redux-saga/effects";
-import readTodoList from "../../readStorage";
 
 export function* readSaga() {
    const data = yield call(readData);
    yield put({ type: "WRITE_DATA", payload: data });
 }
 
-export function* writeSaga() {
-   let data = readTodoList("storage");
-   data = data.at(-1);
-   yield put({ type: "WRITE_DATA", payload: data });
+export function* writeSaga(value) {
+   let data = value.storage;
+   data = data[data.length - 1];
    yield sendData(data);
 }
 
@@ -21,11 +19,16 @@ export function* clearSaga() {
    });
 }
 
-export function* editSaga(index) {
-   let data = readTodoList("storage");
+export function* deleteItemSaga(index) {
+   let data = yield call(readData);
    data = data[index.index];
+   deleteData(data.id);
+}
+
+export function* editSaga(value) {
+   let data = value.storage;
+   data = data[value.index];
    yield editData(data, data.id);
-   yield put({ type: "WRITE_DATA", payload: data });
 }
 
 async function readData() {
@@ -85,6 +88,7 @@ export function* watchClickSaga() {
    yield takeLatest("Submit", writeSaga);
    yield takeLatest("clear", clearSaga);
    yield takeLatest("edit", editSaga);
+   yield takeLatest("deleteItem", deleteItemSaga);
 }
 
 export default function* rootSaga() {
