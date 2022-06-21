@@ -2,7 +2,6 @@ tr {
     text-align: center;
     border: 0px;
     border-bottom: 1px;
-
     border-color: aliceblue;
     border-style: solid;
 }
@@ -12,6 +11,7 @@ tr:last-child {
 }
 
 td {
+    width: 55px;
     border: 0px;
     border-right: 1px;
     border-style: solid;

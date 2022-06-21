@@ -1,6 +1,6 @@
 import React from "react";
 import viewCss from "../View/view.module.css";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PreView = ({ track }) => {
    return (

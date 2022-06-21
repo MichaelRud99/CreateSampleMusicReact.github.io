@@ -109,13 +109,7 @@ const PatternForm = ({
                ) : (
                   <Link
                      onClick={submit}
-                     className={
-                        main.btn +
-                        " " +
-                        patternForm.add +
-                        " " +
-                        patternForm.btnChange
-                     }
+                     className={main.btn + " " + patternForm.change}
                      to="/monsegard3.github.io/"
                   >
                      Изменить
