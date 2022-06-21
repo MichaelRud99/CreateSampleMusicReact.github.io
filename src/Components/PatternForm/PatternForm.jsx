@@ -13,8 +13,11 @@ import { enterTrack } from "../../utils/redux/inputFields/trackSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { editFalse } from "../../utils/redux/editSlice";
 import { validTrue } from "../../utils/redux/ValidFailSlice";
+import DeleteItem from "./DeleteItem/DeleteItem";
 
 const PatternForm = ({
+   storage,
+   index,
    setOpen,
    author,
    dataRelease,
@@ -107,13 +110,20 @@ const PatternForm = ({
                      type="button"
                   ></input>
                ) : (
-                  <Link
-                     onClick={submit}
-                     className={main.btn + " " + patternForm.change}
-                     to="/monsegard3.github.io/"
-                  >
-                     Изменить
-                  </Link>
+                  <>
+                     <Link
+                        onClick={submit}
+                        className={main.btn + " " + patternForm.change}
+                        to="/monsegard3.github.io/"
+                     >
+                        Изменить
+                     </Link>
+
+                     <DeleteItem
+                        storage={storage}
+                        index={index}
+                     />
+                  </>
                )}
             </div>
          </form>

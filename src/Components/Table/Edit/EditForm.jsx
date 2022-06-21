@@ -45,14 +45,14 @@ const EditForm = ({
          );
 
          localStorage.setItem("storage", JSON.stringify(storage));
-         setStorage(readStorage("storage"));
+         setStorage(()=>readStorage("storage"));
 
          dispatch(enterAuthor(undefined));
          dispatch(enterTrack(undefined));
          dispatch(enterAlbum(undefined));
          dispatch(enterDataRelease(undefined));
          dispatch(editFalse());
-         dispatch({ type: "edit", index });
+         dispatch({ type: "edit",storage, index });
       } else {
          dispatch(validFalse());
          event.preventDefault();
@@ -68,6 +68,7 @@ const EditForm = ({
             track={track}
             album={album}
             submit={submit}
+            index={index}
          />
       </>
    );

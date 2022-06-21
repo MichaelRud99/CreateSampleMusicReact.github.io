@@ -51,10 +51,6 @@
 }
 
 .change {
-    width: 130px;
-    height: 28px;
-    cursor: pointer;
-    padding: 0px 7px;
     color: var(--white);
     background-color: var(--btn-change);
     border: 0px;
