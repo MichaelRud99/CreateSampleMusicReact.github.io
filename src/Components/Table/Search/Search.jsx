@@ -25,7 +25,7 @@ const Search = ({
       searchValue = searchValue.toLowerCase();
 
       const storageSearchId = storage.filter(
-         (element) => element.id === Number(searchValue)
+         (element) => element.id === searchValue
       );
       const storageSearchAuthor = storage.filter(
          (element) => element.author.toLowerCase() === searchValue
@@ -36,6 +36,8 @@ const Search = ({
       const storageSearchAlbum = storage.filter(
          (element) => element.album.toLowerCase() === searchValue
       );
+
+      
 
       if (event.target.value === "") {
          setCheckSearch("all");
