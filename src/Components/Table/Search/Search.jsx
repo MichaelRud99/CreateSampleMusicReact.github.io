@@ -2,22 +2,18 @@ import React from "react";
 import readStorage from "../../../utils/readStorage";
 import search from "./search.module.css";
 import { useSearchParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 const Search = ({
    searchValue,
    setSearchValue,
    setCheckSearch,
-   storageSearch,
    setStorageSearch,
 }) => {
    // eslint-disable-next-line no-unused-vars
    let [searchParams, setSearchParams] = useSearchParams();
-   const dispatch = useDispatch();
 
    const changes = (event) => {
       setSearchValue(event.target.value);
-      dispatch({ type: "жми" });
    };
 
    const submit = (event) => {
