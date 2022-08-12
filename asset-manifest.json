@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/monsegard3.github.io/static/css/main.08351ed6.css",
-    "main.js": "/monsegard3.github.io/static/js/main.01177b50.js",
+    "main.css": "/monsegard3.github.io/static/css/main.e542af97.css",
+    "main.js": "/monsegard3.github.io/static/js/main.119261cd.js",
     "static/media/backgroundImg.png": "/monsegard3.github.io/static/media/backgroundImg.c31d2315e64e8efdc104.png",
+    "static/media/png-transparent-computer-icons-camera-lens-icon.svg": "/monsegard3.github.io/static/media/png-transparent-computer-icons-camera-lens-icon.47ed8cb048d5a634d371.svg",
     "index.html": "/monsegard3.github.io/index.html",
-    "main.08351ed6.css.map": "/monsegard3.github.io/static/css/main.08351ed6.css.map",
-    "main.01177b50.js.map": "/monsegard3.github.io/static/js/main.01177b50.js.map"
+    "main.e542af97.css.map": "/monsegard3.github.io/static/css/main.e542af97.css.map",
+    "main.119261cd.js.map": "/monsegard3.github.io/static/js/main.119261cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.08351ed6.css",
-    "static/js/main.01177b50.js"
+    "static/css/main.e542af97.css",
+    "static/js/main.119261cd.js"
   ]
 }
