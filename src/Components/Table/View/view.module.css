@@ -40,7 +40,7 @@ td div {
     margin: 0px;
 }
 
-.windov {
+.window {
     font-size: 20px;
     padding: 20px;
     position: fixed;
@@ -48,7 +48,8 @@ td div {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    height: 250px;
+    width: 900px;
+    height: 370px;
     background-color: var(--form-background);
     margin: 100px 400px 0px 600px;
     padding: 10px;
@@ -59,17 +60,24 @@ td div {
     border-width: 2px;
 }
 
+.leftList,
+.rightList {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .leftList div {
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 .rightList div {
-    padding-left: 150px;
-    padding-right: 50px;
+    padding-left: 80px;
+    padding-right: 40px;
+
 }
 
 .close {
-    margin-top: 30px;
+    margin-top: 10px;
     color: var(--white);
     background-color: transparent;
     border-radius: 20px;
@@ -93,4 +101,11 @@ td div {
     border-style: solid;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.img {
+    width: 200px;
+    height: 270px;
+    margin-right: 50px;
+    object-fit: contain;
 }

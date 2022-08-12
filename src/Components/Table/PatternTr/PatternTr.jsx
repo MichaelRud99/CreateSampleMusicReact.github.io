@@ -14,6 +14,7 @@ const PatternTr = ({
    author,
    track,
    album,
+   albumPhoto,
    dataRelease,
 }) => {
    return (
@@ -46,6 +47,7 @@ const PatternTr = ({
                            author={author}
                            track={track}
                            album={album}
+                           albumPhoto={albumPhoto}
                            dataRelease={dataRelease}
                         />
                      }

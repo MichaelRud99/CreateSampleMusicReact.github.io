@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editFalse } from "../../utils/redux/editSlice";
 import { validTrue } from "../../utils/redux/ValidFailSlice";
 import DeleteItem from "./DeleteItem/DeleteItem";
+import DownloadPhoto from "./DownloadPhoto/DownloadPhoto";
 
 const PatternForm = ({
    storage,
@@ -100,7 +101,7 @@ const PatternForm = ({
                   setValue={enterAlbum}
                />
             </div>
-
+            {edit === false && <DownloadPhoto />}
             <div className={patternForm.btnFooter}>
                {edit === false ? (
                   <input
@@ -119,10 +120,7 @@ const PatternForm = ({
                         Изменить
                      </Link>
 
-                     <DeleteItem
-                        storage={storage}
-                        index={index}
-                     />
+                     <DeleteItem storage={storage} index={index} />
                   </>
                )}
             </div>

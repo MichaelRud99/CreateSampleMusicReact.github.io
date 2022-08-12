@@ -113,3 +113,44 @@
     padding-top: 0px;
     height: 28px;
 }
+
+.flex {
+    width: 250px;
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addPhoto {
+    display: inline-block;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: url(../../../public/img/png-transparent-computer-icons-camera-lens-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    object-fit: cover;
+}
+
+.paragraf {
+    margin: 0%;
+    padding-left: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inputImg {
+    width: 150px;
+    height: 30px;
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+}

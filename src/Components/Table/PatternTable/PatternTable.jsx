@@ -76,6 +76,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                            author={value.author}
                            track={value.track}
                            album={value.album}
+                           albumPhoto={value.albumPhoto}
                            dataRelease={value.dataRelease}
                         />
                      );
@@ -93,6 +94,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                            author={value.author}
                            track={value.track}
                            album={value.album}
+                           albumPhoto={value.albumPhoto}
                            dataRelease={value.dataRelease}
                         />
                      );
