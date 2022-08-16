@@ -2,12 +2,11 @@ import PatternForm from "../../PatternForm/PatternForm";
 import { useSelector, useDispatch } from "react-redux";
 import editValidation from "../../../utils/validation/editValidation";
 import validation from "../../../utils/validation/validation";
-import { enterAuthor } from "../../../utils/redux/inputFields/authorSlice";
-import { enterTrack } from "../../../utils/redux/inputFields/trackSlice";
-import { enterAlbum } from "../../../utils/redux/inputFields/albumSlice";
-import { enterDataRelease } from "../../../utils/redux/inputFields/dataReleaseSlice";
 import { validFalse } from "../../../utils/redux/ValidFailSlice";
 import { editFalse } from "../../../utils/redux/editSlice";
+
+import { inputFieldsSlice } from "../../../utils/redux/inputFieldsSlice";
+import { useActions } from "../../Hooks/useActotion";
 
 import readStorage from "../../../utils/readStorage";
 
@@ -21,11 +20,12 @@ const EditForm = ({
    index,
 }) => {
    const dispatch = useDispatch();
-   const enter = useSelector((state) => state);
-   let editAuthor = enter.author.value;
-   let editTrack = enter.track.value;
-   let editAlbum = enter.album.value;
-   let editDataRelease = enter.dataRelease.value;
+   const inputFields = useActions(inputFieldsSlice.actions);
+   const enter = useSelector((state) => state.inputFields);
+   let editAlbum = enter.album;
+   let editAuthor = enter.author;
+   let editDataRelease = enter.dataRelease;
+   let editTrack = enter.track;
 
    const submit = (event) => {
       editAuthor = editValidation(editAuthor, author);
@@ -46,12 +46,9 @@ const EditForm = ({
 
          localStorage.setItem("storage", JSON.stringify(storage));
          setStorage(()=>readStorage("storage"));
-
-         dispatch(enterAuthor(undefined));
-         dispatch(enterTrack(undefined));
-         dispatch(enterAlbum(undefined));
-         dispatch(enterDataRelease(undefined));
+         inputFields.enterClear();
          dispatch(editFalse());
+
          dispatch({ type: "edit",storage, index });
       } else {
          dispatch(validFalse());

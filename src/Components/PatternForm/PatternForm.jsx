@@ -6,15 +6,15 @@ import validationText from "../../utils/validation/validationText/validationText
 import validationDate from "../../utils/validation/validationDate/validationDate";
 import ValidText from "../Validation/ValidText/ValidText";
 import ValidDate from "../Validation/ValidDate/ValidDate";
-import { enterAuthor } from "../../utils/redux/inputFields/authorSlice";
-import { enterAlbum } from "../../utils/redux/inputFields/albumSlice";
-import { enterDataRelease } from "../../utils/redux/inputFields/dataReleaseSlice";
-import { enterTrack } from "../../utils/redux/inputFields/trackSlice";
+
 import { useDispatch, useSelector } from "react-redux";
 import { editFalse } from "../../utils/redux/editSlice";
 import { validTrue } from "../../utils/redux/ValidFailSlice";
 import DeleteItem from "./DeleteItem/DeleteItem";
 import DownloadPhoto from "./DownloadPhoto/DownloadPhoto";
+
+import { useActions } from "../Hooks/useActotion";
+import { inputFieldsSlice } from "../../utils/redux/inputFieldsSlice";
 
 const PatternForm = ({
    storage,
@@ -26,10 +26,12 @@ const PatternForm = ({
    album,
    submit,
 }) => {
-   const outputAuthor = useSelector((state) => state.author.value);
-   const outputDataRelease = useSelector((state) => state.dataRelease.value);
-   const outputTrack = useSelector((state) => state.track.value);
-   const outputAlbum = useSelector((state) => state.album.value);
+   const outputFields = useActions(inputFieldsSlice.actions);
+   const enter = useSelector((state) => state.inputFields);
+   const outputAlbum = enter.album;
+   const outputAuthor = enter.author;
+   const outputDataRelease = enter.dataRelease;
+   const outputTrack = enter.track;
    const edit = useSelector((state) => state.edit.edit);
    const dispatch = useDispatch();
 
@@ -63,7 +65,7 @@ const PatternForm = ({
                   validationText={validationText}
                   initialValue={author}
                   outputValue={outputAuthor}
-                  setValue={enterAuthor}
+                  setValue={outputFields.enterAuthor}
                />
             </div>
 
@@ -75,7 +77,7 @@ const PatternForm = ({
                   validationDate={validationDate}
                   initialValue={dataRelease}
                   outputValue={outputDataRelease}
-                  setValue={enterDataRelease}
+                  setValue={outputFields.enterDataRelease}
                />
             </div>
             <div>
@@ -86,7 +88,7 @@ const PatternForm = ({
                   validationText={validationText}
                   initialValue={track}
                   outputValue={outputTrack}
-                  setValue={enterTrack}
+                  setValue={outputFields.enterTrack}
                />
             </div>
 
@@ -98,7 +100,7 @@ const PatternForm = ({
                   validationText={validationText}
                   initialValue={album}
                   outputValue={outputAlbum}
-                  setValue={enterAlbum}
+                  setValue={outputFields.enterAlbum}
                />
             </div>
             {edit === false && <DownloadPhoto />}

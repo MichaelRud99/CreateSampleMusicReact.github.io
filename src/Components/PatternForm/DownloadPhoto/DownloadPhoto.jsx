@@ -1,10 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { enterAlbumPhoto } from "../../../utils/redux/inputFields/albumPhotoSlice";
 import patternForm from "../patternForm.module.css";
+import { useActions } from "../../Hooks/useActotion";
+import { inputFieldsSlice } from "../../../utils/redux/inputFieldsSlice";
 
 const DownloadPhoto = () => {
-   const dispatch = useDispatch();
+   const inputFields = useActions(inputFieldsSlice.actions);
 
    const download = () => {
       const div = document.querySelectorAll("div");
@@ -17,8 +17,7 @@ const DownloadPhoto = () => {
             paragraf.innerText = file.name;
             let reader = new FileReader();
             reader.onloadend = function () {
-               /*               console.log('RESULT', reader.result); */
-               dispatch(enterAlbumPhoto(reader.result));
+               inputFields.enterAlbumPhoto(reader.result);
             };
             reader.readAsDataURL(file);
          }
