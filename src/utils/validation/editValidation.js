@@ -1,5 +1,5 @@
 const editValidation = (editValue, originValue) => {
-   if (editValue === undefined) {
+   if (editValue === "") {
       editValue = originValue;
    }
    return editValue;

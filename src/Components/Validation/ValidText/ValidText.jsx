@@ -1,10 +1,9 @@
 import React from "react";
 import validation from "../validation.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import editValidation from "../../../utils/validation/editValidation";
 
 const ValidText = ({ validationText, initialValue, outputValue, setValue }) => {
-   const dispath = useDispatch();
    const edit = useSelector((state) => state.edit.edit);
    const validFail = useSelector((state) => state.validFail.valid);
 
@@ -13,7 +12,7 @@ const ValidText = ({ validationText, initialValue, outputValue, setValue }) => {
    }
 
    const changeValue = (event) => {
-      dispath(setValue(event.target.value));
+      setValue(event.target.value);
    };
 
    return (
