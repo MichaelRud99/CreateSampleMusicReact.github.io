@@ -21,39 +21,25 @@ const View = ({ id, author, dataRelease, track, album, albumPhoto }) => {
                      }
                      alt="album"
                   />
-
-                  <span className={viewCss.leftList}>
-                     <div>
+                  <span className={viewCss.list + " " + viewCss.flex}>
+                     <div className={viewCss.grid}>
                         <label>id</label>
-                     </div>
-                     <div>
-                        <label>Исполнитель</label>
-                     </div>
-                     <div>
-                        <label>название композиции</label>
-                     </div>
-                     <div>
-                        <label>Альбом</label>
-                     </div>
-                     <div>
-                        <label>Дата выпуска</label>
-                     </div>
-                  </span>
-
-                  <span className={viewCss.rightList}>
-                     <div>
                         <label>{id}</label>
                      </div>
-                     <div>
+                     <div className={viewCss.grid}>
+                        <label>Исполнитель</label>
                         <label>{author}</label>
                      </div>
-                     <div>
+                     <div className={viewCss.grid}>
+                        <label>название композиции</label>
                         <label>{track}</label>
                      </div>
-                     <div>
+                     <div className={viewCss.grid}>
+                        <label>Альбом</label>
                         <label>{album}</label>
                      </div>
-                     <div>
+                     <div className={viewCss.grid}>
+                        <label>Дата выпуска</label>
                         <label>{dataRelease}</label>
                      </div>
                   </span>
