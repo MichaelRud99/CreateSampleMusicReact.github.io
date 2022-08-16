@@ -36,6 +36,16 @@
     border-right: 0px;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 250px 350px;
+}
+
+.grid label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 td div {
     margin: 0px;
 }
@@ -60,20 +70,10 @@ td div {
     border-width: 2px;
 }
 
-.leftList,
-.rightList {
+.list {
+    flex-direction: column;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-.leftList div {
-    padding-left: 40px;
-}
-
-.rightList div {
-    padding-left: 80px;
-    padding-right: 40px;
-
 }
 
 .close {
