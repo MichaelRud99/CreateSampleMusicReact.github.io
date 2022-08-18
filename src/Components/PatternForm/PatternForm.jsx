@@ -1,23 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import patternForm from "./patternForm.module.css";
 import main from "../Main/main.module.css";
 import validationText from "../../utils/validation/validationText/validationText";
 import validationDate from "../../utils/validation/validationDate/validationDate";
 import ValidText from "../Validation/ValidText/ValidText";
 import ValidDate from "../Validation/ValidDate/ValidDate";
-
-import { useDispatch, useSelector } from "react-redux";
-import { editFalse } from "../../utils/redux/editSlice";
-import { validTrue } from "../../utils/redux/ValidFailSlice";
 import DeleteItem from "./DeleteItem/DeleteItem";
 import DownloadPhoto from "./DownloadPhoto/DownloadPhoto";
 
+import { editSlice } from "../../utils/redux/slices/editSlice";
+import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
 import { useActions } from "../Hooks/useActotion";
-import { inputFieldsSlice } from "../../utils/redux/inputFieldsSlice";
+import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
 
 const PatternForm = ({
    storage,
+   setStorage,
    index,
    setOpen,
    author,
@@ -26,6 +27,8 @@ const PatternForm = ({
    album,
    submit,
 }) => {
+   const slice = useActions([editSlice.actions, validFailSlice.actions]);
+
    const outputFields = useActions(inputFieldsSlice.actions);
    const enter = useSelector((state) => state.inputFields);
    const outputAlbum = enter.album;
@@ -33,11 +36,10 @@ const PatternForm = ({
    const outputDataRelease = enter.dataRelease;
    const outputTrack = enter.track;
    const edit = useSelector((state) => state.edit.edit);
-   const dispatch = useDispatch();
 
    const editClose = () => {
-      dispatch(editFalse());
-      dispatch(validTrue());
+      slice[0].editFalse();
+      slice[1].validTrue();
    };
 
    return (
@@ -122,7 +124,7 @@ const PatternForm = ({
                         Изменить
                      </Link>
 
-                     <DeleteItem storage={storage} index={index} />
+                     <DeleteItem storage={storage} index={index} setStorage={setStorage}/>
                   </>
                )}
             </div>

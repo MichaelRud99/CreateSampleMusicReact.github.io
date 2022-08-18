@@ -1,19 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
-import editSlice from "./editSlice";
-import ValidFailSlice from "./ValidFailSlice";
+import editSlice from "./slices/editSlice";
+import ValidFailSlice from "./slices/ValidFailSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./saga/saga";
-import reducers from "./reducer/reducer";
-import inputFieldsSlice from "./inputFieldsSlice";
+import inputFieldsSlice from "./slices/inputFieldsSlice";
+import writeDataSlice from "./slices/wrtieDataSlice";
+import sagaSlice from "./slices/sagaSlice";
+import reducer from "./reducer/reducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
    reducer: {
-      inputFields:inputFieldsSlice,
+      inputFields: inputFieldsSlice,
       edit: editSlice,
       validFail: ValidFailSlice,
-      reducers,
+      /* writeData: writeDataSlice, */
+      sagaSlice,
+      reducer,
    },
 
    middleware: [sagaMiddleware],

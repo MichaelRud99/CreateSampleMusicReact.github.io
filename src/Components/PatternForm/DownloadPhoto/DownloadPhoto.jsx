@@ -1,7 +1,7 @@
 import React from "react";
 import patternForm from "../patternForm.module.css";
 import { useActions } from "../../Hooks/useActotion";
-import { inputFieldsSlice } from "../../../utils/redux/inputFieldsSlice";
+import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
 
 const DownloadPhoto = () => {
    const inputFields = useActions(inputFieldsSlice.actions);

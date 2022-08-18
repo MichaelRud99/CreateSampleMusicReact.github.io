@@ -1,4 +1,11 @@
 import { put, call, takeLatest } from "redux-saga/effects";
+import {
+   sagaReadData,
+   sagaSubmit,
+   sagaClear,
+   sagaEdit,
+   sagaDeleteItem,
+} from "../slices/sagaSlice";
 
 export function* readSaga() {
    const data = yield call(readData);
@@ -6,29 +13,22 @@ export function* readSaga() {
 }
 
 export function* writeSaga(value) {
-   let data = value.storage;
-   data = data[data.length - 1];
-   yield sendData(data);
+   yield sendData(value.payload);
 }
 
 export function* clearSaga() {
    const data = yield call(readData);
-   // eslint-disable-next-line array-callback-return
-   yield data.map((value) => {
+   yield data.forEach((value) => {
       deleteData(value.id);
    });
 }
 
-export function* deleteItemSaga(index) {
-   let data = yield call(readData);
-   data = data[index.index];
-   deleteData(data.id);
+export function* deleteItemSaga(value) {
+   yield deleteData(value.payload.id);
 }
 
 export function* editSaga(value) {
-   let data = value.storage;
-   data = data[value.index];
-   yield editData(data, data.id);
+   yield editData(value.payload, value.payload.id);
 }
 
 async function readData() {
@@ -84,11 +84,11 @@ function deleteData(id) {
 }
 
 export function* watchClickSaga() {
-   yield takeLatest("readData", readSaga);
-   yield takeLatest("Submit", writeSaga);
-   yield takeLatest("clear", clearSaga);
-   yield takeLatest("edit", editSaga);
-   yield takeLatest("deleteItem", deleteItemSaga);
+   yield takeLatest(sagaReadData, readSaga);
+   yield takeLatest(sagaSubmit, writeSaga);
+   yield takeLatest(sagaClear, clearSaga);
+   yield takeLatest(sagaEdit, editSaga);
+   yield takeLatest(sagaDeleteItem, deleteItemSaga);
 }
 
 export default function* rootSaga() {

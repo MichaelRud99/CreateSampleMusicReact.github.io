@@ -1,18 +1,20 @@
 import React from "react";
-import PatternForm from "../PatternForm/PatternForm";
-import { useDispatch, useSelector } from "react-redux";
-import validation from "../../utils/validation/validation";
-import { validFalse } from "../../utils/redux/ValidFailSlice";
-
+import { useSelector } from "react-redux";
 import { useActions } from "../Hooks/useActotion";
-import { inputFieldsSlice } from "../../utils/redux/inputFieldsSlice";
+import validation from "../../utils/validation/validation";
+import PatternForm from "../PatternForm/PatternForm";
+
+import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
+import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
+import { sagaSlice } from "../../utils/redux/slices/sagaSlice";
 
 const CreateForm = ({ storage, setOpen }) => {
-   const inputFields = useActions(inputFieldsSlice.actions);
+   const slice = useActions([
+      inputFieldsSlice.actions,
+      validFailSlice.actions,
+      sagaSlice.actions,
+   ]);
 
-   /* времнно оставим dispatch */
-   const dispatch = useDispatch();
-   
    const enter = useSelector((state) => state.inputFields);
    const albumPhoto = enter.albumPhoto;
    const album = enter.album;
@@ -31,11 +33,11 @@ const CreateForm = ({ storage, setOpen }) => {
          tmp.album = album;
          tmp.albumPhoto = albumPhoto;
          storage[storage.length] = tmp;
-         inputFields.enterClear();
-         dispatch({ type: "Submit", storage });
+         slice[0].enterClear();
+         slice[2].sagaSubmit(tmp);
          setOpen(false);
       } else {
-         dispatch(validFalse());
+         slice[1].validFalse();
          event.preventDefault();
       }
    };
