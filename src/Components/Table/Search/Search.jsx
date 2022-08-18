@@ -9,8 +9,8 @@ const Search = ({
    setCheckSearch,
    setStorageSearch,
 }) => {
-   // eslint-disable-next-line no-unused-vars
-   let [searchParams, setSearchParams] = useSearchParams();
+
+   let [, setSearchParams] = useSearchParams();
 
    const changes = (event) => {
       setSearchValue(event.target.value);
