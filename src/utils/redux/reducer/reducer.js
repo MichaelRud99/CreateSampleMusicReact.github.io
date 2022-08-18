@@ -3,10 +3,10 @@ const initial = {
 };
 
 export default function reducer(state = initial, action) {
-   // eslint-disable-next-line default-case
    switch (action.type) {
       case "WRITE_DATA": {
-         return { ...state, data: action.payload };
+
+         return { ...state, data: action.payload};
       }
 
       default:

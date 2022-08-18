@@ -28,6 +28,7 @@ export const inputFieldsSlice = createSlice({
       },
 
       enterClear: (state) => {
+         state.albumPhoto = "default";
          state.album = "";
          state.author = "";
          state.dataRelease = "";

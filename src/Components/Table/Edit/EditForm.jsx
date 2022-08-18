@@ -1,12 +1,13 @@
 import PatternForm from "../../PatternForm/PatternForm";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import editValidation from "../../../utils/validation/editValidation";
 import validation from "../../../utils/validation/validation";
-import { validFalse } from "../../../utils/redux/ValidFailSlice";
-import { editFalse } from "../../../utils/redux/editSlice";
+import { validFailSlice } from "../../../utils/redux/slices/ValidFailSlice";
+import { editSlice } from "../../../utils/redux/slices/editSlice";
+import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
 
-import { inputFieldsSlice } from "../../../utils/redux/inputFieldsSlice";
 import { useActions } from "../../Hooks/useActotion";
+import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
 
 import readStorage from "../../../utils/readStorage";
 
@@ -19,8 +20,13 @@ const EditForm = ({
    album,
    index,
 }) => {
-   const dispatch = useDispatch();
-   const inputFields = useActions(inputFieldsSlice.actions);
+   const slice = useActions([
+      inputFieldsSlice.actions,
+      editSlice.actions,
+      validFailSlice.actions,
+      sagaSlice.actions,
+   ]);
+
    const enter = useSelector((state) => state.inputFields);
    let editAlbum = enter.album;
    let editAuthor = enter.author;
@@ -45,13 +51,12 @@ const EditForm = ({
          );
 
          localStorage.setItem("storage", JSON.stringify(storage));
-         setStorage(()=>readStorage("storage"));
-         inputFields.enterClear();
-         dispatch(editFalse());
-
-         dispatch({ type: "edit",storage, index });
+         setStorage(() => readStorage("storage"));
+         slice[0].enterClear();
+         slice[1].editFalse();
+         slice[3].sagaEdit(storage[index]);
       } else {
-         dispatch(validFalse());
+         slice[2].validFalse();
          event.preventDefault();
       }
    };
@@ -66,6 +71,7 @@ const EditForm = ({
             album={album}
             submit={submit}
             index={index}
+            setStorage={setStorage}
          />
       </>
    );

@@ -1,23 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux/";
+import { useSelector } from "react-redux/";
+import { useActions } from "../Hooks/useActotion";
+import { sagaSlice } from "../../utils/redux/slices/sagaSlice";
 import main from "./main.module.css";
 import BtnCreate from "../BtnCreate";
 import readStorage from "../../utils/readStorage";
 import PatternTable from "../Table/PatternTable/PatternTable";
 
 const Main = () => {
-   const dispatch = useDispatch();
-   const store = useSelector((store) => store.reducers);
+   const store = useSelector((store) => store.reducer);
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState(() => readStorage("storage"));
+   const slice = useActions(sagaSlice.actions);
 
    useEffect(() => {
-      dispatch({ type: "readData" });
+      slice.sagaReadData();
       if (store.data.length > 0) {
          setStorage(store.data);
          localStorage.setItem("storage", JSON.stringify(store.data));
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [store.data.length]);
 
    return (

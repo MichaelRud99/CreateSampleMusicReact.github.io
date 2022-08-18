@@ -1,18 +1,20 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { editFalse } from "../../../utils/redux/editSlice";
 import main from "../../Main/main.module.css";
 import deleteItem from "./deleteItem.module.css";
+import { useActions } from "../../Hooks/useActotion";
+import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
+import { editSlice } from "../../../utils/redux/slices/editSlice";
 
-const DeleteItem = ({ storage, index }) => {
-   const dispatch = useDispatch();
+const DeleteItem = ({ storage, index, setStorage }) => {
+   const slice = useActions([sagaSlice.actions, editSlice.actions]);
 
    const delet = () => {
+      slice[0].sagaDeleteItem(storage[index]);
       storage.splice(index, 1);
-      dispatch({ type: "deleteItem", index });
-      dispatch(editFalse());
-      dispatch({ type: "WRITE_DATA", payload: storage });
+      slice[1].editFalse();
+      localStorage.setItem(storage);
+      setStorage(storage);
    };
 
    return (
