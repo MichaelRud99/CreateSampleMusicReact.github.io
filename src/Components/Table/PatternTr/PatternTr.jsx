@@ -34,7 +34,7 @@ const PatternTr = ({
                            <PreView id={id} />
                         </td>
                         <td>
-                           <PreEdit track={track} />
+                           <PreEdit id={id} />
                         </td>
                      </>
                   }

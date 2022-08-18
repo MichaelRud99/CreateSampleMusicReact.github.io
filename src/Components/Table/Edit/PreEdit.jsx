@@ -5,7 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { editTrue } from "../../../utils/redux/editSlice";
 
-const PreEdit = ({ track }) => {
+const PreEdit = ({ id }) => {
 
    const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ const PreEdit = ({ track }) => {
          <Link
             onClick={() => dispatch(editTrue())}
             className={patternForm.btn + " " + editCss.edit}
-            to={`/monsegard3.github.io/Edit/${track}`}
+            to={`/monsegard3.github.io/Edit/${id }`}
          ></Link>
          <Outlet />
       </>
