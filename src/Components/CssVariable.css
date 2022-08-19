@@ -16,8 +16,8 @@
     --btn-delete: #eb0c0c9c;
     --btn-delete-hover: #c21616e0;
     --btn-close-hover: #e94e06;
-    --btn-change:rgba(122, 179, 206, 0.507);
-    --btn-change-hover:rgba(125, 170, 47, 0.945);
+    --btn-change: rgba(122, 179, 206, 0.507);
+    --btn-change-hover: rgba(125, 170, 47, 0.945);
 
     --list-background: #132938dc;
     --list-background-darked: #132938ec;
@@ -35,4 +35,6 @@
     --form-input-focus-border: #A6A6A6;
     --form-btn: #286562;
     --form-btn-hover: rgba(59, 126, 123, 1);
+
+    --description-paragraf: #ecd5d57d;
 }
