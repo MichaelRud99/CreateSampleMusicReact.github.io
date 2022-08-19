@@ -37,6 +37,11 @@ const PatternForm = ({
    const outputTrack = enter.track;
    const edit = useSelector((state) => state.edit.edit);
 
+   const close = () => {
+      setOpen(false);
+      slice[1].validTrue();
+   };
+
    const editClose = () => {
       slice[0].editFalse();
       slice[1].validTrue();
@@ -47,7 +52,7 @@ const PatternForm = ({
          <div className={patternForm.move}>
             {edit === false ? (
                <button
-                  onClick={() => setOpen(false)}
+                  onClick={close}
                   className={patternForm.btn + " " + patternForm.close}
                ></button>
             ) : (
