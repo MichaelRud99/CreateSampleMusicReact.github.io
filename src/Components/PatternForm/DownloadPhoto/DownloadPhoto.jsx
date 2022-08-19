@@ -33,21 +33,23 @@ const DownloadPhoto = () => {
 
    return (
       <>
-         <div className={patternForm.flex}>
-            <div className={patternForm.flex}>
-               <span className={patternForm.addPhoto}></span>
-               <p className={patternForm.paragraf}>добавить обложку</p>
-            </div>
+         <div className={patternForm.flex + " " + patternForm.tmp}>
+            <div>
+               <div className={patternForm.flex + " " + patternForm.tmp}>
+                  <span className={patternForm.addPhoto}></span>
+                  <p className={patternForm.paragraf}>добавить обложку</p>
+               </div>
 
-            {big === true ? (
-               <p className={patternForm.descriptionParagraf}>
-                  Размер файла слишком большой
-               </p>
-            ) : (
-               <p className={patternForm.descriptionParagraf}>
-                  (Файл не более 70 КБ)
-               </p>
-            )}
+               {big === true ? (
+                  <p className={patternForm.descriptionParagraf}>
+                     Размер файла слишком большой
+                  </p>
+               ) : (
+                  <p className={patternForm.descriptionParagraf}>
+                     (Файл не более 70 КБ)
+                  </p>
+               )}
+            </div>
 
             <input
                accept="image/*"
