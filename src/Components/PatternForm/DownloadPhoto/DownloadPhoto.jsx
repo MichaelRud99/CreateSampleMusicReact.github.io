@@ -9,9 +9,9 @@ const DownloadPhoto = () => {
    const [big, setBig] = useState(false);
 
    const download = () => {
-      const div = document.querySelectorAll("div");
-      const imgInp = div[16].querySelector("#imgInp");
-      const paragraf = div[16].querySelector("p");
+      const section = document.querySelectorAll("section");
+      const imgInp = section[2].querySelector("#imgInp");
+      const paragraf = section[2].querySelector("#paragraf");
 
       imgInp.onchange = (evt) => {
          const [file] = imgInp.files;
@@ -37,7 +37,9 @@ const DownloadPhoto = () => {
             <div>
                <div className={patternForm.flex + " " + patternForm.tmp}>
                   <span className={patternForm.addPhoto}></span>
-                  <p className={patternForm.paragraf}>добавить обложку</p>
+                  <p id="paragraf" className={patternForm.paragraf}>
+                     добавить обложку
+                  </p>
                </div>
 
                {big === true ? (
