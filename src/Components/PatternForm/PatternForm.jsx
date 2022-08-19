@@ -124,7 +124,11 @@ const PatternForm = ({
                         Изменить
                      </Link>
 
-                     <DeleteItem storage={storage} index={index} setStorage={setStorage}/>
+                     <DeleteItem
+                        storage={storage}
+                        index={index}
+                        setStorage={setStorage}
+                     />
                   </>
                )}
             </div>
