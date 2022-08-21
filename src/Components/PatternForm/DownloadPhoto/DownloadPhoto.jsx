@@ -33,9 +33,9 @@ const DownloadPhoto = () => {
 
    return (
       <>
-         <div className={patternForm.flex + " " + patternForm.tmp}>
+         <div className={patternForm.flex}>
             <div>
-               <div className={patternForm.flex + " " + patternForm.tmp}>
+               <div className={patternForm.flex}>
                   <span className={patternForm.addPhoto}></span>
                   <p id="paragraf" className={patternForm.paragraf}>
                      добавить обложку

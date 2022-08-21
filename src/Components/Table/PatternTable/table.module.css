@@ -75,3 +75,11 @@ th:nth-child(7) {
     margin: 10px auto;
     padding: 0%;
 }
+
+@media (max-width:1800px) {
+
+    .table {
+        width: auto;
+    }
+
+}

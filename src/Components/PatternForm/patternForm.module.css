@@ -1,13 +1,12 @@
 .body {
     position: fixed;
-    top: 50px;
+    top: 30vh;
+    left: 70vh;
     right: 0px;
     bottom: 0px;
-    left: 0px;
     width: 700px;
     height: 420px;
     background-color: var(--form-background);
-    margin: 100px 0px 0px 700px;
     padding: 10px;
     border-radius: 20px;
 }
@@ -104,6 +103,7 @@
 .btnFooter {
     display: flex;
     margin: auto;
+    margin-top: 50px;
     gap: 70px;
     grid-column: span 2;
 }
@@ -112,6 +112,7 @@
     padding-bottom: 0px;
     padding-top: 0px;
     height: 28px;
+
 }
 
 .flex {
@@ -132,6 +133,10 @@
     background-position: center;
     background-size: 100%;
     object-fit: cover;
+}
+
+p {
+    text-align: left;
 }
 
 .paragraf {
@@ -161,4 +166,15 @@
     padding-left: 10px;
     font-size: 13px;
     color: var(--description-paragraf);
+}
+
+
+@media (max-width:1800px) {
+    .body {
+        top: 20vh;
+        left: 10vh;
+        width: 570px;
+        height: 420px;
+        margin: auto;
+    }
 }

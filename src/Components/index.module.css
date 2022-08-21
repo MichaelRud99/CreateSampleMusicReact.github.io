@@ -2,7 +2,6 @@ body {
   font-family: 'Times New Roman', Times, serif;
   font-size: 16px;
   line-height: 27px;
-  color: var(--text-color-grey);
   font-weight: 300;
   margin: 0%;
   background-color: var(--white-almost);
@@ -19,6 +18,19 @@ a {
 
 .flex {
   display: flex;
+  flex-direction: row;
   padding: 0%;
   margin: 10px;
+}
+
+@media (max-width:1800px) {
+  body {
+    background-size: auto;
+    font-size: 14px;
+  }
+
+  .flex {
+    margin: 0px;
+    flex-direction: column;
+  }
 }
