@@ -52,3 +52,21 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+@media (max-width:1800px) {
+    .section {
+        margin-top: 0px;
+    }
+
+    .flex {
+        margin: 0%;
+    }
+
+    .title {
+        margin-top: 250px;
+    }
+
+    .subtitle {
+        margin-top: 50px;
+    }
+}
