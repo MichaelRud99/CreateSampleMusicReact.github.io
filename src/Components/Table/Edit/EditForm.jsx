@@ -9,8 +9,6 @@ import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
 import { useActions } from "../../Hooks/useActotion";
 import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
 
-import readStorage from "../../../utils/readStorage";
-
 const EditForm = ({
    storage,
    setStorage,
@@ -32,6 +30,7 @@ const EditForm = ({
    let editAuthor = enter.author;
    let editDataRelease = enter.dataRelease;
    let editTrack = enter.track;
+   const cloneStorage = structuredClone(storage);
 
    const submit = (event) => {
       editAuthor = editValidation(editAuthor, author);
@@ -42,19 +41,19 @@ const EditForm = ({
       if (
          validation(editAuthor, editTrack, editAlbum, editDataRelease) === true
       ) {
-         storage[index].author = editValidation(editAuthor, author);
-         storage[index].track = editValidation(editTrack, track);
-         storage[index].album = editValidation(editAlbum, album);
-         storage[index].dataRelease = editValidation(
+         cloneStorage[index].author = editValidation(editAuthor, author);
+         cloneStorage[index].track = editValidation(editTrack, track);
+         cloneStorage[index].album = editValidation(editAlbum, album);
+         cloneStorage[index].dataRelease = editValidation(
             editDataRelease,
             dataRelease
          );
 
          localStorage.setItem("storage", JSON.stringify(storage));
-         setStorage(() => readStorage("storage"));
+         setStorage(cloneStorage);
          slice[0].enterClear();
          slice[1].editFalse();
-         slice[3].sagaEdit(storage[index]);
+         slice[3].sagaEdit(cloneStorage[index]);
       } else {
          slice[2].validFalse();
          event.preventDefault();

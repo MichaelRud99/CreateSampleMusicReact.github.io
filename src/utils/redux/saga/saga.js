@@ -5,11 +5,12 @@ import {
    sagaClear,
    sagaEdit,
    sagaDeleteItem,
+   sagaWriteData,
 } from "../slices/sagaSlice";
 
 export function* readSaga() {
    const data = yield call(readData);
-   yield put({ type: "WRITE_DATA", payload: data });
+   yield put({ type: sagaWriteData, payload: data });
 }
 
 export function* writeSaga(value) {
