@@ -13,12 +13,15 @@ export const sagaSlice = createSlice({
       sagaDeleteItem: (state, data) => {
          state.data = data.payload;
       },
+      sagaWriteData: (state, data) => {
+         state.data = data.payload;
+      },
       sagaReadData: (state) => {},
       sagaClear: (state) => {},
    },
 });
 
-export const { sagaSubmit, sagaReadData, sagaClear, sagaEdit, sagaDeleteItem } =
+export const { sagaSubmit, sagaReadData, sagaClear, sagaEdit, sagaDeleteItem ,sagaWriteData} =
    sagaSlice.actions;
 
 export default sagaSlice.reducer;

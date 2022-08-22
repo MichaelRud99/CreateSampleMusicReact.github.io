@@ -5,14 +5,14 @@ import { useActions } from "../Hooks/useActotion";
 import { sagaSlice } from "../../utils/redux/slices/sagaSlice";
 import main from "./main.module.css";
 import BtnCreate from "../BtnCreate";
-import readStorage from "../../utils/readStorage";
 import PatternTable from "../Table/PatternTable/PatternTable";
+import readStorage from "../../utils/readStorage";
 
 const Main = () => {
-   const store = useSelector((store) => store.reducer);
+   const store = useSelector((store) => store.sagaSlice);
+   const slice = useActions(sagaSlice.actions);
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState(() => readStorage("storage"));
-   const slice = useActions(sagaSlice.actions);
 
    useEffect(() => {
       slice.sagaReadData();

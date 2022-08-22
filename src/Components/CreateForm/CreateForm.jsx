@@ -8,23 +8,24 @@ import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
 import { sagaSlice } from "../../utils/redux/slices/sagaSlice";
 
-const CreateForm = ({ storage, setOpen }) => {
+const CreateForm = ({ storage, setStorage, setOpen }) => {
    const slice = useActions([
       inputFieldsSlice.actions,
       validFailSlice.actions,
       sagaSlice.actions,
    ]);
 
-   const enter = useSelector((state) => state.inputFields);
-   const albumPhoto = enter.albumPhoto;
-   const album = enter.album;
-   const author = enter.author;
-   const dataRelease = enter.dataRelease;
-   const track = enter.track;
+   const state = useSelector((state) => state.inputFields);
+   const albumPhoto = state.albumPhoto;
+   const album = state.album;
+   const author = state.author;
+   const dataRelease = state.dataRelease;
+   const track = state.track;
 
    const submit = (event) => {
       if (validation(author, track, album, dataRelease) === true) {
          let tmp = {};
+         const cloneStorage = structuredClone(storage);
          const rnd = Math.random() * 10;
          tmp.id = Math.round((Math.random() * 10000) / rnd);
          tmp.author = author;
@@ -32,7 +33,7 @@ const CreateForm = ({ storage, setOpen }) => {
          tmp.track = track;
          tmp.album = album;
          tmp.albumPhoto = albumPhoto;
-         storage[storage.length] = tmp;
+         cloneStorage[cloneStorage.length] = tmp;
          slice[0].enterClear();
          slice[2].sagaSubmit(tmp);
          setOpen(false);
@@ -42,6 +43,13 @@ const CreateForm = ({ storage, setOpen }) => {
       }
    };
 
-   return <PatternForm storage={storage} setOpen={setOpen} submit={submit} />;
+   return (
+      <PatternForm
+         storage={storage}
+         setStorage={setStorage}
+         setOpen={setOpen}
+         submit={submit}
+      />
+   );
 };
 export default CreateForm;

@@ -41,11 +41,6 @@
     grid-template-columns: 250px 350px;
 }
 
-.grid label {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
 td div {
     margin: 0px;
 }

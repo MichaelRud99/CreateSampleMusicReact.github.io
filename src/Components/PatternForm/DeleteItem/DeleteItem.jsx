@@ -6,15 +6,16 @@ import { useActions } from "../../Hooks/useActotion";
 import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
 import { editSlice } from "../../../utils/redux/slices/editSlice";
 
-const DeleteItem = ({ storage, index, setStorage }) => {
+const DeleteItem = ({ storage, setStorage, index }) => {
    const slice = useActions([sagaSlice.actions, editSlice.actions]);
 
    const delet = () => {
+      const cloneStorage = structuredClone(storage);
       slice[0].sagaDeleteItem(storage[index]);
-      storage.splice(index, 1);
+      slice[0].sagaReadData();
+      cloneStorage.splice(index, 1);
+      setStorage(cloneStorage);
       slice[1].editFalse();
-      localStorage.setItem(storage);
-      setStorage(storage);
    };
 
    return (
