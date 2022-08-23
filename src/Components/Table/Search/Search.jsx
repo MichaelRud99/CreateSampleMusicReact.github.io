@@ -2,6 +2,7 @@ import React from "react";
 import readStorage from "../../../utils/readStorage";
 import search from "./search.module.css";
 import { useSearchParams } from "react-router-dom";
+import searchLetters from "../../../utils/searchLetters/searchLetters";
 
 const Search = ({
    searchValue,
@@ -9,7 +10,6 @@ const Search = ({
    setCheckSearch,
    setStorageSearch,
 }) => {
-
    let [, setSearchParams] = useSearchParams();
 
    const changes = (event) => {
@@ -20,34 +20,75 @@ const Search = ({
       const storage = readStorage("storage");
       searchValue = searchValue.toLowerCase();
 
-      const storageSearchId = storage.filter(
-         (element) => element.id === searchValue
-      );
-      const storageSearchAuthor = storage.filter(
-         (element) => element.author.toLowerCase() === searchValue
-      );
-      const storageSearchTrack = storage.filter(
-         (element) => element.track.toLowerCase() === searchValue
-      );
-      const storageSearchAlbum = storage.filter(
-         (element) => element.album.toLowerCase() === searchValue
-      );
-
-      
+      const searchId = storage.filter((element) => element.id === searchValue);
+      const SearchAuthor = storage.map((value) => value.author.toLowerCase());
+      const SearchTrack = storage.map((value) => value.track.toLowerCase());
+      const SearchAlbum = storage.map((value) => value.album.toLowerCase());
+      let currentStorage = [];
+      let answer = [];
+      let uniqueArray = [];
 
       if (event.target.value === "") {
          setCheckSearch("all");
-      } else if (storageSearchId.length > 0) {
-         setStorageSearch(storageSearchId);
+      } else if (searchId.length > 0) {
+         setStorageSearch(searchId);
          setCheckSearch("found");
-      } else if (storageSearchAuthor.length > 0) {
-         setStorageSearch(storageSearchAuthor);
+      } else if (
+         searchLetters(storage, searchValue, setStorageSearch, SearchAuthor)
+            .length > 0
+      ) {
+         uniqueArray = searchLetters(
+            storage,
+            searchValue,
+            setStorageSearch,
+            SearchAuthor
+         );
+         for (let w = 0; w < uniqueArray.length; w++) {
+            const storageSearch = storage.filter(
+               (element) => element.author.toLowerCase() === uniqueArray[w]
+            );
+            answer = currentStorage.concat(storageSearch);
+            currentStorage = storageSearch;
+         }
+         setStorageSearch(answer);
          setCheckSearch("found");
-      } else if (storageSearchAlbum.length > 0) {
-         setStorageSearch(storageSearchAlbum);
+      } else if (
+         searchLetters(storage, searchValue, setStorageSearch, SearchTrack)
+            .length > 0
+      ) {
+         uniqueArray = searchLetters(
+            storage,
+            searchValue,
+            setStorageSearch,
+            SearchTrack
+         );
+         for (let w = 0; w < uniqueArray.length; w++) {
+            const storageSearch = storage.filter(
+               (element) => element.track.toLowerCase() === uniqueArray[w]
+            );
+            answer = currentStorage.concat(storageSearch);
+            currentStorage = storageSearch;
+         }
+         setStorageSearch(answer);
          setCheckSearch("found");
-      } else if (storageSearchTrack.length > 0) {
-         setStorageSearch(storageSearchTrack);
+      } else if (
+         searchLetters(storage, searchValue, setStorageSearch, SearchAlbum)
+            .length > 0
+      ) {
+         uniqueArray = searchLetters(
+            storage,
+            searchValue,
+            setStorageSearch,
+            SearchAlbum
+         );
+         for (let w = 0; w < uniqueArray.length; w++) {
+            const storageSearch = storage.filter(
+               (element) => element.album.toLowerCase() === uniqueArray[w]
+            );
+            answer = currentStorage.concat(storageSearch);
+            currentStorage = storageSearch;
+         }
+         setStorageSearch(answer);
          setCheckSearch("found");
       } else {
          setCheckSearch("notFound");

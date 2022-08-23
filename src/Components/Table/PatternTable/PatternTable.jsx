@@ -32,7 +32,6 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                            {(checkSearch === "found" ||
                               checkSearch === "notFound") && (
                               <Reset
-                                 storage={storage}
                                  setCheckSearch={setCheckSearch}
                                  setSearchValue={setSearchValue}
                               />
