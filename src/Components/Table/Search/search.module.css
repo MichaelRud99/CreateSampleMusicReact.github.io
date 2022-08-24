@@ -1,8 +1,5 @@
 .div_border {
-    border-color: var(--form-input-border);
-    border-style: solid;
     border-radius: 15px 0px 0px 0px;
-    border-width: 1px;
     border: 0px;
 }
 
@@ -31,7 +28,7 @@
     height: 30px;
     margin: 0%;
     padding: 0%;
-    background-color: var(--list-background-darked);
+    background-color: transparent;
     color: var(--white);
     height: 50px;
     border: transparent;
@@ -39,7 +36,7 @@
 }
 
 .input:focus {
-    background-image: linear-gradient(to right, var(--list-background-darked), var(--search-focus)20%, var(--list-background-darked));
+    background-image: linear-gradient(to right, var(--list-background-darked), var(--search-focus)20%, transparent);
 }
 
 @media (max-width:1800px) {
