@@ -1,7 +1,9 @@
+.fakeEdit,
 .edit {
     color: var(--white-almost);
 }
 
+.fakeEdit::after,
 .edit::after {
     content: "\1F4CB";
     font-size: 25px;
@@ -10,4 +12,8 @@
 
 .edit:hover {
     color: var(--btn-close-hover);
+}
+
+.fakeEdit {
+    cursor: default;
 }

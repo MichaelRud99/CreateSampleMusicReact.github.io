@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import main from "../../Main/main.module.css";
 import viewCss from "./view.module.css";
 import { Link } from "react-router-dom";
+import { useActions } from "../../Hooks/useActotion";
+import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
 
 const View = ({ id, author, dataRelease, track, album, albumPhoto }) => {
    const [view, setView] = useState(true);
+   const slice = useActions(openOutletSlise.actions);
+
+   const close = () => {
+      setView(false);
+      slice.openTrue();
+   };
 
    return (
       <>
@@ -46,7 +54,7 @@ const View = ({ id, author, dataRelease, track, album, albumPhoto }) => {
                </div>
                <div>
                   <Link
-                     onClick={() => setView(false)}
+                     onClick={close}
                      className={main.btn + " " + viewCss.close}
                      to="/monsegard3.github.io/"
                   >

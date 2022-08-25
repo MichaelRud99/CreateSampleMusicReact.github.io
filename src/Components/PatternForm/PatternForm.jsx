@@ -15,6 +15,7 @@ import { editSlice } from "../../utils/redux/slices/editSlice";
 import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
 import { useActions } from "../Hooks/useActotion";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
+import { openOutletSlise } from "../../utils/redux/slices/openOutletSlise";
 
 const PatternForm = ({
    storage,
@@ -27,7 +28,11 @@ const PatternForm = ({
    album,
    submit,
 }) => {
-   const slice = useActions([editSlice.actions, validFailSlice.actions]);
+   const slice = useActions([
+      editSlice.actions,
+      validFailSlice.actions,
+      openOutletSlise.actions,
+   ]);
 
    const outputFields = useActions(inputFieldsSlice.actions);
    const enter = useSelector((state) => state.inputFields);
@@ -45,6 +50,7 @@ const PatternForm = ({
    const editClose = () => {
       slice[0].editFalse();
       slice[1].validTrue();
+      slice[2].openTrue();
    };
 
    return (

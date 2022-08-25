@@ -77,6 +77,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                            album={value.album}
                            albumPhoto={value.albumPhoto}
                            dataRelease={value.dataRelease}
+                           setOpen={setOpen}
                         />
                      );
                   })}
@@ -95,6 +96,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                            album={value.album}
                            albumPhoto={value.albumPhoto}
                            dataRelease={value.dataRelease}
+                           setOpen={setOpen}
                         />
                      );
                   })}

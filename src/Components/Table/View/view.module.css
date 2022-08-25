@@ -8,10 +8,17 @@
     border: transparent;
 }
 
+.fakeFastView,
 .fastView {
     color: var(--btn-fast-view);
+    margin: 0%;
 }
 
+.fakeFastView {
+    cursor: default;
+}
+
+.fakeFastView::after,
 .fastView::after {
     content: "\1F441";
     font-size: 25px;

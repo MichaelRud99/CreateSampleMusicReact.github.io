@@ -5,6 +5,7 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from "./saga/saga";
 import inputFieldsSlice from "./slices/inputFieldsSlice";
 import sagaSlice from "./slices/sagaSlice";
+import openOutletSlise from "./slices/openOutletSlise";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -14,6 +15,7 @@ const store = configureStore({
       edit: editSlice,
       validFail: ValidFailSlice,
       sagaSlice,
+      openModalWindow:openOutletSlise,
    },
 
    middleware: [sagaMiddleware],

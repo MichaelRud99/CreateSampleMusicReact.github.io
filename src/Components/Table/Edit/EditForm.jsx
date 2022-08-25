@@ -5,9 +5,9 @@ import validation from "../../../utils/validation/validation";
 import { validFailSlice } from "../../../utils/redux/slices/ValidFailSlice";
 import { editSlice } from "../../../utils/redux/slices/editSlice";
 import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
-
 import { useActions } from "../../Hooks/useActotion";
 import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
+import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
 
 const EditForm = ({
    storage,
@@ -17,12 +17,14 @@ const EditForm = ({
    track,
    album,
    index,
+   setOpen,
 }) => {
    const slice = useActions([
       inputFieldsSlice.actions,
       editSlice.actions,
       validFailSlice.actions,
       sagaSlice.actions,
+      openOutletSlise.actions,
    ]);
 
    const enter = useSelector((state) => state.inputFields);
@@ -54,6 +56,7 @@ const EditForm = ({
          slice[0].enterClear();
          slice[1].editFalse();
          slice[3].sagaEdit(cloneStorage[index]);
+         slice[4].openTrue();
       } else {
          slice[2].validFalse();
          event.preventDefault();
@@ -71,6 +74,7 @@ const EditForm = ({
             submit={submit}
             index={index}
             setStorage={setStorage}
+            setOpen={setOpen}
          />
       </>
    );

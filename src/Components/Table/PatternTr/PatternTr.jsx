@@ -16,6 +16,7 @@ const PatternTr = ({
    album,
    albumPhoto,
    dataRelease,
+   setOpen
 }) => {
    return (
       <tr>
@@ -63,6 +64,7 @@ const PatternTr = ({
                            dataRelease={dataRelease}
                            track={track}
                            album={album}
+                           setOpen={setOpen}
                         />
                      }
                   ></Route>

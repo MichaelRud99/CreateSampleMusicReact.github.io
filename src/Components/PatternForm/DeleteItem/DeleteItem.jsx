@@ -5,9 +5,14 @@ import deleteItem from "./deleteItem.module.css";
 import { useActions } from "../../Hooks/useActotion";
 import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
 import { editSlice } from "../../../utils/redux/slices/editSlice";
+import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
 
 const DeleteItem = ({ storage, setStorage, index }) => {
-   const slice = useActions([sagaSlice.actions, editSlice.actions]);
+   const slice = useActions([
+      sagaSlice.actions,
+      editSlice.actions,
+      openOutletSlise.actions,
+   ]);
 
    const delet = () => {
       const cloneStorage = structuredClone(storage);
@@ -16,6 +21,7 @@ const DeleteItem = ({ storage, setStorage, index }) => {
       cloneStorage.splice(index, 1);
       setStorage(cloneStorage);
       slice[1].editFalse();
+      slice[2].openTrue();
    };
 
    return (
