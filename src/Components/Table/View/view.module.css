@@ -122,7 +122,7 @@ td div {
 
     .window {
         top: 20vh;
-        left: 210vw;
+        left: 5vw;
         width: 700px;
         padding: 0%;
         padding-top: 50px;
@@ -140,6 +140,6 @@ td div {
     }
 
     .close {
-        margin-top: 20px;
+        margin: 20px 0px 20px 0px;
     }
 }
