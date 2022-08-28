@@ -1,6 +1,7 @@
 import React from "react";
 import readStorage from "../../../utils/readStorage";
 import search from "./search.module.css";
+import indexCss from "../../index.module.css";
 import { useSearchParams } from "react-router-dom";
 import searchLetters from "../../../utils/searchLetters/searchLetters";
 
@@ -9,6 +10,7 @@ const Search = ({
    setSearchValue,
    setCheckSearch,
    setStorageSearch,
+   setInProp,
 }) => {
    let [, setSearchParams] = useSearchParams();
 
@@ -29,6 +31,7 @@ const Search = ({
       let uniqueArray = [];
 
       if (event.target.value === "") {
+         setInProp(false);
          setCheckSearch("all");
       } else if (searchId.length > 0) {
          setStorageSearch(searchId);
@@ -52,6 +55,7 @@ const Search = ({
          }
          setStorageSearch(answer);
          setCheckSearch("found");
+         setInProp(true);
       } else if (
          searchLetters(storage, searchValue, setStorageSearch, SearchTrack)
             .length > 0
@@ -71,6 +75,7 @@ const Search = ({
          }
          setStorageSearch(answer);
          setCheckSearch("found");
+         setInProp(true);
       } else if (
          searchLetters(storage, searchValue, setStorageSearch, SearchAlbum)
             .length > 0
@@ -90,7 +95,9 @@ const Search = ({
          }
          setStorageSearch(answer);
          setCheckSearch("found");
+         setInProp(true);
       } else {
+         setInProp(true);
          setCheckSearch("notFound");
       }
 
@@ -111,7 +118,7 @@ const Search = ({
    return (
       <div className={search.div_border}>
          <button
-            className={search.img}
+            className={search.img + " " + indexCss.transitionOpacity}
             onClick={() => document.querySelector("input").focus()}
          />
          <input
@@ -119,7 +126,7 @@ const Search = ({
             placeholder="поиск..."
             onChange={changes}
             value={searchValue}
-            className={search.input}
+            className={search.input + " " + indexCss.transitionColor}
             onKeyDownCapture={keyUp}
          />
       </div>

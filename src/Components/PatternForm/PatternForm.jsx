@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 import patternForm from "./patternForm.module.css";
 import main from "../Main/main.module.css";
+import indexCss from "../index.module.css";
+
 import validationText from "../../utils/validation/validationText/validationText";
 import validationDate from "../../utils/validation/validationDate/validationDate";
 import ValidText from "../Validation/ValidText/ValidText";
@@ -59,12 +61,24 @@ const PatternForm = ({
             {edit === false ? (
                <button
                   onClick={close}
-                  className={patternForm.btn + " " + patternForm.close}
+                  className={
+                     patternForm.btn +
+                     " " +
+                     patternForm.close +
+                     " " +
+                     indexCss.transitionColor
+                  }
                ></button>
             ) : (
                <Link
                   onClick={editClose}
-                  className={patternForm.btn + " " + patternForm.close}
+                  className={
+                     patternForm.btn +
+                     " " +
+                     patternForm.close +
+                     " " +
+                     indexCss.transitionColor
+                  }
                   to="/monsegard3.github.io/"
                ></Link>
             )}
@@ -121,7 +135,13 @@ const PatternForm = ({
                {edit === false ? (
                   <input
                      onClick={submit}
-                     className={main.btn + " " + patternForm.add}
+                     className={
+                        main.btn +
+                        " " +
+                        patternForm.add +
+                        " " +
+                        indexCss.transitionBtn
+                     }
                      defaultValue="добавить"
                      type="button"
                   ></input>
@@ -129,7 +149,13 @@ const PatternForm = ({
                   <>
                      <Link
                         onClick={submit}
-                        className={main.btn + " " + patternForm.change}
+                        className={
+                           main.btn +
+                           " " +
+                           patternForm.change +
+                           " " +
+                           indexCss.transitionBtn
+                        }
                         to="/monsegard3.github.io/"
                      >
                         Изменить

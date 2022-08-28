@@ -11,6 +11,27 @@ body {
 
 }
 
+.transitionBtn {
+  transition-property: background-color, border-color;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  transition-timing-function: linear;
+}
+
+.transitionColor {
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  transition-timing-function: linear;
+}
+
+.transitionOpacity {
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  transition-timing-function: linear;
+}
+
 a {
   text-decoration: none;
   padding: 0%;

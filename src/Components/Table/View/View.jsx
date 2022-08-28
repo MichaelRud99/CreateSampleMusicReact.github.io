@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import main from "../../Main/main.module.css";
 import viewCss from "./view.module.css";
+import indexCss from "../../index.module.css";
 import { Link } from "react-router-dom";
 import { useActions } from "../../Hooks/useActotion";
 import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
@@ -55,7 +56,13 @@ const View = ({ id, author, dataRelease, track, album, albumPhoto }) => {
                <div>
                   <Link
                      onClick={close}
-                     className={main.btn + " " + viewCss.close}
+                     className={
+                        main.btn +
+                        " " +
+                        viewCss.close +
+                        " " +
+                        indexCss.transitionBtn
+                     }
                      to="/monsegard3.github.io/"
                   >
                      Закрыть

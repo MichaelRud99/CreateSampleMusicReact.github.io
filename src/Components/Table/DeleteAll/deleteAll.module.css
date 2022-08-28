@@ -8,5 +8,5 @@
 
 .delete:hover {
     background-color: var(--btn-delete-hover);
-    border: 1px solid var(--white-almost);
+    border: 1px solid var(--btn-border);
 }

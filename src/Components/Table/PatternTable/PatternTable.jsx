@@ -7,10 +7,13 @@ import PatternTr from "../PatternTr/PatternTr";
 import Search from "../Search/Search";
 import Reset from "../Reset/Reset";
 
+import "../../transitionComponents.css";
+
 const PatternTable = ({ storage, setStorage, setOpen, open }) => {
    const [checkSearch, setCheckSearch] = useState("all");
    const [searchValue, setSearchValue] = useState("");
    const [storageSearch, setStorageSearch] = useState("");
+   const [inProp, setInProp] = useState(false);
 
    return (
       <div className={table.frame}>
@@ -26,16 +29,15 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                            searchValue={searchValue}
                            setSearchValue={setSearchValue}
                            setStorageSearch={setStorageSearch}
+                           setInProp={setInProp}
                         />
 
                         <div className={table.divBtn}>
-                           {(checkSearch === "found" ||
-                              checkSearch === "notFound") && (
-                              <Reset
-                                 setCheckSearch={setCheckSearch}
-                                 setSearchValue={setSearchValue}
-                              />
-                           )}
+                           <Reset
+                              setCheckSearch={setCheckSearch}
+                              setSearchValue={setSearchValue}
+                              inProp={inProp}
+                           />
                            <DeleteAll setStorage={setStorage} />
                            <AddMusic
                               storage={storage}
@@ -48,6 +50,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                />
             </Routes>
          </BrowserRouter>
+         {/*          <TransitionGroup> */}
 
          <table className={table.table}>
             <thead>
@@ -102,6 +105,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                   })}
             </tbody>
          </table>
+
          {checkSearch === "notFound" && (
             <div className={table.notFound}>
                По вашему запросу ничего не найдено

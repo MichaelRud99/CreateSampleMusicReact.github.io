@@ -59,7 +59,7 @@
 
 .change:hover {
     background-color: var(--btn-change-hover);
-    border: 1px solid transparent;
+    border: 1px solid var(--btn-border);
 }
 
 .btn {
@@ -86,7 +86,7 @@
 }
 
 .close:hover {
-    color: var(--btn-close-hover);
+    color: var(--btn-delete-hover);
 }
 
 .move {

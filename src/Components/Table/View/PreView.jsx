@@ -1,5 +1,6 @@
 import React from "react";
 import viewCss from "./view.module.css";
+import indexCss from "../../index.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useActions } from "../../Hooks/useActotion";
@@ -13,7 +14,13 @@ const PreView = ({ id }) => {
       <>
          {state === true ? (
             <Link
-               className={viewCss.btn + " " + viewCss.fastView}
+               className={
+                  viewCss.btn +
+                  " " +
+                  viewCss.fastView +
+                  " " +
+                  indexCss.transitionColor
+               }
                to={`/monsegard3.github.io/View/${id}`}
                onClick={() => slice.openFalse()}
             ></Link>

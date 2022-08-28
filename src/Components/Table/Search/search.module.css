@@ -14,6 +14,10 @@
     border-radius: 23px 0px 0px 0px;
 }
 
+.img:hover {
+    opacity: 0.6;
+}
+
 .img::after {
     content: "\1F50D";
     font-size: 20px;
@@ -37,6 +41,10 @@
 
 .input:focus {
     background-image: linear-gradient(to right, var(--list-background-darked), var(--search-focus)20%, transparent);
+}
+
+.input:hover {
+    color: var(--search-input-hover);
 }
 
 @media (max-width:1800px) {

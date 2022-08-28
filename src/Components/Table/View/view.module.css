@@ -85,11 +85,12 @@ td div {
     margin-top: 10px;
     margin-bottom: 10px;
     color: var(--white);
-    background-color: transparent;
+    background-color: var(--btn-close);
     border-radius: 20px;
 }
 
 .close:hover {
+    border: 1px solid var(--btn-border);
     background-color: var(--btn-close-hover);
 }
 

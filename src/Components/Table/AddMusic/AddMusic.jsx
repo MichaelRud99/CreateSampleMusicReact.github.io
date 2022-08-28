@@ -1,7 +1,8 @@
 import React from "react";
 import main from "../../Main/main.module.css";
-import CreateForm from "../../CreateForm/CreateForm";
 import addMusic from "./addMusic.module.css";
+import indexCss from "../../index.module.css";
+import CreateForm from "../../CreateForm/CreateForm";
 
 const AddMusic = ({
    storage,
@@ -17,7 +18,9 @@ const AddMusic = ({
          <input
             onClick={() => setOpen(true)}
             type="button"
-            className={main.btn + " " + addMusic.btn}
+            className={
+               main.btn + " " + addMusic.btn + " " + indexCss.transitionBtn
+            }
             defaultValue="добавить"
          ></input>
          {open === true && (

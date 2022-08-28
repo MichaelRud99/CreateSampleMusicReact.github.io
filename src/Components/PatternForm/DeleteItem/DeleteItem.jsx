@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import main from "../../Main/main.module.css";
 import deleteItem from "./deleteItem.module.css";
+import indexCss from "../../index.module.css";
 import { useActions } from "../../Hooks/useActotion";
 import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
 import { editSlice } from "../../../utils/redux/slices/editSlice";
@@ -27,7 +28,9 @@ const DeleteItem = ({ storage, setStorage, index }) => {
    return (
       <Link
          onClick={delet}
-         className={main.btn + " " + deleteItem.delete}
+         className={
+            main.btn + " " + deleteItem.delete + " " + indexCss.transitionBtn
+         }
          to="/monsegard3.github.io/"
       >
          Удалить
