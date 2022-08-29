@@ -1,10 +1,12 @@
 .my-node-enter {
     opacity: 0;
+    background-color: yellow;
 }
 
 .my-node-enter-active {
     opacity: 1;
-    transition: opacity 500ms;
+    transition: opacity 400ms;
+    background-color: var(--transition-enter);
 }
 
 .my-node-exit {

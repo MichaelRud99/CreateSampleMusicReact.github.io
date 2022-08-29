@@ -8,11 +8,11 @@ import Search from "../Search/Search";
 import Reset from "../Reset/Reset";
 
 import "../../transitionComponents.css";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const PatternTable = ({ storage, setStorage, setOpen, open }) => {
-   const [checkSearch, setCheckSearch] = useState("all");
+   const [checkSearch, setCheckSearch] = useState("found");
    const [searchValue, setSearchValue] = useState("");
-   const [storageSearch, setStorageSearch] = useState("");
    const [inProp, setInProp] = useState(false);
 
    return (
@@ -25,11 +25,10 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                      <div className={table.flex}>
                         <Search
                            setCheckSearch={setCheckSearch}
-                           storageSearch={storageSearch}
                            searchValue={searchValue}
                            setSearchValue={setSearchValue}
-                           setStorageSearch={setStorageSearch}
                            setInProp={setInProp}
+                           setStorage={setStorage}
                         />
 
                         <div className={table.divBtn}>
@@ -50,7 +49,6 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                />
             </Routes>
          </BrowserRouter>
-         {/*          <TransitionGroup> */}
 
          <table className={table.table}>
             <thead>
@@ -65,45 +63,32 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                </tr>
             </thead>
 
-            <tbody>
-               {checkSearch === "all" &&
+            <TransitionGroup component={"tbody"}>
+               {checkSearch === "found" &&
                   storage.map((value, index) => {
                      return (
-                        <PatternTr
-                           storage={storage}
-                           setStorage={setStorage}
+                        <CSSTransition
                            key={value.id}
-                           id={value.id}
-                           index={index}
-                           author={value.author}
-                           track={value.track}
-                           album={value.album}
-                           albumPhoto={value.albumPhoto}
-                           dataRelease={value.dataRelease}
-                           setOpen={setOpen}
-                        />
+                           timeout={300}
+                           classNames="my-node"
+                        >
+                           <PatternTr
+                              storage={storage}
+                              setStorage={setStorage}
+                              key={value.id}
+                              id={value.id}
+                              index={index}
+                              author={value.author}
+                              track={value.track}
+                              album={value.album}
+                              albumPhoto={value.albumPhoto}
+                              dataRelease={value.dataRelease}
+                              setOpen={setOpen}
+                           />
+                        </CSSTransition>
                      );
                   })}
-
-               {checkSearch === "found" &&
-                  storageSearch.map((value, index) => {
-                     return (
-                        <PatternTr
-                           storage={storage}
-                           setStorage={setStorage}
-                           key={value.id}
-                           id={value.id}
-                           index={index}
-                           author={value.author}
-                           track={value.track}
-                           album={value.album}
-                           albumPhoto={value.albumPhoto}
-                           dataRelease={value.dataRelease}
-                           setOpen={setOpen}
-                        />
-                     );
-                  })}
-            </tbody>
+            </TransitionGroup>
          </table>
 
          {checkSearch === "notFound" && (

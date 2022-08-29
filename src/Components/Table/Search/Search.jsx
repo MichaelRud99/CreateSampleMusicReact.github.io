@@ -9,7 +9,7 @@ const Search = ({
    searchValue,
    setSearchValue,
    setCheckSearch,
-   setStorageSearch,
+   setStorage,
    setInProp,
 }) => {
    let [, setSearchParams] = useSearchParams();
@@ -32,20 +32,13 @@ const Search = ({
 
       if (event.target.value === "") {
          setInProp(false);
-         setCheckSearch("all");
-      } else if (searchId.length > 0) {
-         setStorageSearch(searchId);
+         setStorage(storage);
          setCheckSearch("found");
-      } else if (
-         searchLetters(storage, searchValue, setStorageSearch, SearchAuthor)
-            .length > 0
-      ) {
-         uniqueArray = searchLetters(
-            storage,
-            searchValue,
-            setStorageSearch,
-            SearchAuthor
-         );
+      } else if (searchId.length > 0) {
+         setStorage(searchId);
+         setCheckSearch("found");
+      } else if (searchLetters(searchValue, SearchAuthor).length > 0) {
+         uniqueArray = searchLetters(searchValue, SearchAuthor);
          for (let w = 0; w < uniqueArray.length; w++) {
             const storageSearch = storage.filter(
                (element) => element.author.toLowerCase() === uniqueArray[w]
@@ -53,47 +46,31 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorageSearch(answer);
+         setStorage(answer);
          setCheckSearch("found");
          setInProp(true);
-      } else if (
-         searchLetters(storage, searchValue, setStorageSearch, SearchTrack)
-            .length > 0
-      ) {
-         uniqueArray = searchLetters(
-            storage,
-            searchValue,
-            setStorageSearch,
-            SearchTrack
-         );
+      } else if (searchLetters(searchValue, SearchTrack).length > 0) {
+         uniqueArray = searchLetters(searchValue, SearchTrack);
          for (let w = 0; w < uniqueArray.length; w++) {
             const storageSearch = storage.filter(
                (element) => element.track.toLowerCase() === uniqueArray[w]
             );
             answer = currentStorage.concat(storageSearch);
-            currentStorage = storageSearch;
+            currentStorage = answer;
          }
-         setStorageSearch(answer);
+         setStorage(answer);
          setCheckSearch("found");
          setInProp(true);
-      } else if (
-         searchLetters(storage, searchValue, setStorageSearch, SearchAlbum)
-            .length > 0
-      ) {
-         uniqueArray = searchLetters(
-            storage,
-            searchValue,
-            setStorageSearch,
-            SearchAlbum
-         );
+      } else if (searchLetters(searchValue, SearchAlbum).length > 0) {
+         uniqueArray = searchLetters(searchValue, SearchAlbum);
          for (let w = 0; w < uniqueArray.length; w++) {
             const storageSearch = storage.filter(
                (element) => element.album.toLowerCase() === uniqueArray[w]
             );
             answer = currentStorage.concat(storageSearch);
-            currentStorage = storageSearch;
+            currentStorage = answer;
          }
-         setStorageSearch(answer);
+         setStorage(answer);
          setCheckSearch("found");
          setInProp(true);
       } else {

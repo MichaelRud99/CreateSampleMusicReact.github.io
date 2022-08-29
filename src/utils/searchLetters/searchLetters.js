@@ -1,4 +1,4 @@
-const searchLetters = (storage, searchValue, setStorageSearch, value) => {
+const searchLetters = (searchValue, value) => {
    let foundArr = [];
    const letterSearch = searchValue.split("");
    let count = 0;
