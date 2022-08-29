@@ -51,7 +51,7 @@ const Search = ({
                (element) => element.author.toLowerCase() === uniqueArray[w]
             );
             answer = currentStorage.concat(storageSearch);
-            currentStorage = storageSearch;
+            currentStorage = answer;
          }
          setStorageSearch(answer);
          setCheckSearch("found");
