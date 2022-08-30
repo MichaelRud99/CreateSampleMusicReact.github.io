@@ -10,7 +10,7 @@ const Reset = ({ setCheckSearch, setSearchValue, inProp }) => {
    const rst = () => {
       history.push(`/monsegard3.github.io/`);
       setSearchValue("");
-      setCheckSearch("all");
+      setCheckSearch("found");
    };
 
    return (
