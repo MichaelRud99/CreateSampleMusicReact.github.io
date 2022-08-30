@@ -36,6 +36,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                               setCheckSearch={setCheckSearch}
                               setSearchValue={setSearchValue}
                               inProp={inProp}
+                              setStorage={setStorage}
                            />
                            <DeleteAll setStorage={setStorage} />
                            <AddMusic
