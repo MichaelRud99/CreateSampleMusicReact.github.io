@@ -5,14 +5,21 @@ import indexCss from "../../index.module.css";
 import history from "../../../utils/history/history";
 import { CSSTransition } from "react-transition-group";
 import "../../transitionComponents.css";
-import readStorage from "../../../utils/readStorage";
 
-const Reset = ({ setCheckSearch, setSearchValue, inProp, setStorage }) => {
+const Reset = ({
+   setCheckSearch,
+   setSearchValue,
+   inProp,
+   setInProp,
+   storage,
+   setStorageSearch,
+}) => {
    const rst = () => {
       history.push(`/monsegard3.github.io/`);
       setSearchValue("");
       setCheckSearch("found");
-      setStorage(() => readStorage("storage"));
+      setStorageSearch(storage);
+      setInProp(false);
    };
 
    return (

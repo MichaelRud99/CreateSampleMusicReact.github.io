@@ -14,6 +14,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
    const [checkSearch, setCheckSearch] = useState("found");
    const [searchValue, setSearchValue] = useState("");
    const [inProp, setInProp] = useState(false);
+   const [storageSearch, setStorageSearch] = useState(storage);
 
    return (
       <div className={table.frame}>
@@ -24,11 +25,12 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                   element={
                      <div className={table.flex}>
                         <Search
+                           storage={storage}
                            setCheckSearch={setCheckSearch}
                            searchValue={searchValue}
                            setSearchValue={setSearchValue}
                            setInProp={setInProp}
-                           setStorage={setStorage}
+                           setStorageSearch={setStorageSearch}
                         />
 
                         <div className={table.divBtn}>
@@ -36,7 +38,9 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                               setCheckSearch={setCheckSearch}
                               setSearchValue={setSearchValue}
                               inProp={inProp}
-                              setStorage={setStorage}
+                              setInProp={setInProp}
+                              storage={storage}
+                              setStorageSearch={setStorageSearch}
                            />
                            <DeleteAll setStorage={setStorage} />
                            <AddMusic
@@ -66,7 +70,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
 
             <TransitionGroup component={"tbody"}>
                {checkSearch === "found" &&
-                  storage.map((value, index) => {
+                  storageSearch.map((value, index) => {
                      return (
                         <CSSTransition
                            key={value.id}

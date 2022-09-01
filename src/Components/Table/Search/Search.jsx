@@ -1,15 +1,15 @@
 import React from "react";
-import readStorage from "../../../utils/readStorage";
 import search from "./search.module.css";
 import indexCss from "../../index.module.css";
 import { useSearchParams } from "react-router-dom";
 import searchLetters from "../../../utils/searchLetters/searchLetters";
 
 const Search = ({
+   storage,
    searchValue,
    setSearchValue,
    setCheckSearch,
-   setStorage,
+   setStorageSearch,
    setInProp,
 }) => {
    let [, setSearchParams] = useSearchParams();
@@ -19,7 +19,6 @@ const Search = ({
    };
 
    const submit = (event) => {
-      const storage = readStorage("storage");
       searchValue = searchValue.toLowerCase();
 
       const searchId = storage.filter((element) => element.id === searchValue);
@@ -32,10 +31,10 @@ const Search = ({
 
       if (event.target.value === "") {
          setInProp(false);
-         setStorage(storage);
+         setStorageSearch(storage);
          setCheckSearch("found");
       } else if (searchId.length > 0) {
-         setStorage(searchId);
+         setStorageSearch(searchId);
          setCheckSearch("found");
       } else if (searchLetters(searchValue, SearchAuthor).length > 0) {
          uniqueArray = searchLetters(searchValue, SearchAuthor);
@@ -46,7 +45,7 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorage(answer);
+         setStorageSearch(answer);
          setCheckSearch("found");
          setInProp(true);
       } else if (searchLetters(searchValue, SearchTrack).length > 0) {
@@ -58,7 +57,7 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorage(answer);
+         setStorageSearch(answer);
          setCheckSearch("found");
          setInProp(true);
       } else if (searchLetters(searchValue, SearchAlbum).length > 0) {
@@ -70,7 +69,7 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorage(answer);
+         setStorageSearch(answer);
          setCheckSearch("found");
          setInProp(true);
       } else {
