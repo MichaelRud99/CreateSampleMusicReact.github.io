@@ -18,6 +18,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
 
    useEffect(() => {
       setStorageSearch(storage);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [storage.length]);
 
    return (

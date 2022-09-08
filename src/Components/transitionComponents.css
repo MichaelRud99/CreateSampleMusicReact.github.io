@@ -1,6 +1,5 @@
 .my-node-enter {
     opacity: 0;
-    background-color: yellow;
 }
 
 .my-node-enter-active {
