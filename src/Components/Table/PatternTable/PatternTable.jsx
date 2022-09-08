@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import table from "./table.module.css";
 import AddMusic from "../AddMusic/AddMusic";
@@ -15,6 +15,10 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
    const [searchValue, setSearchValue] = useState("");
    const [inProp, setInProp] = useState(false);
    const [storageSearch, setStorageSearch] = useState(storage);
+
+   useEffect(() => {
+      setStorageSearch(storage);
+   }, [storage.length]);
 
    return (
       <div className={table.frame}>
