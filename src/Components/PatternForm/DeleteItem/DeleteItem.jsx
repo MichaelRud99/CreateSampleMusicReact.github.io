@@ -4,13 +4,13 @@ import main from "../../Main/main.module.css";
 import deleteItem from "./deleteItem.module.css";
 import indexCss from "../../index.module.css";
 import { useActions } from "../../Hooks/useActotion";
-import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
+import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
 import { editSlice } from "../../../utils/redux/slices/editSlice";
 import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
 
 const DeleteItem = ({ storage, setStorage, index }) => {
    const slice = useActions([
-      sagaSlice.actions,
+      listCompositionSlice.actions,
       editSlice.actions,
       openOutletSlise.actions,
    ]);

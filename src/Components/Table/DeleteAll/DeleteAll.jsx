@@ -3,10 +3,10 @@ import deleteAll from "./deleteAll.module.css";
 import main from "../../Main/main.module.css";
 import indexCss from "../../index.module.css";
 import { useActions } from "../../Hooks/useActotion";
-import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
+import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
 
 const DeleteAll = ({ setStorage }) => {
-   const slice = useActions(sagaSlice.actions);
+   const slice = useActions(listCompositionSlice.actions);
    const delet = () => {
       setStorage("");
       slice.sagaClear();

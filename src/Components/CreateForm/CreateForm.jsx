@@ -6,13 +6,13 @@ import PatternForm from "../PatternForm/PatternForm";
 
 import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
-import { sagaSlice } from "../../utils/redux/slices/sagaSlice";
+import { listCompositionSlice } from "../../utils/redux/slices/listComposition";
 
 const CreateForm = ({ storage, setStorage, setOpen }) => {
    const slice = useActions([
       inputFieldsSlice.actions,
       validFailSlice.actions,
-      sagaSlice.actions,
+      listCompositionSlice.actions,
    ]);
 
    const state = useSelector((state) => state.inputFields);
@@ -35,7 +35,8 @@ const CreateForm = ({ storage, setStorage, setOpen }) => {
          tmp.albumPhoto = albumPhoto;
          cloneStorage[cloneStorage.length] = tmp;
          slice[0].enterClear();
-         slice[2].sagaSubmit(tmp);
+         slice[2].submit(tmp);
+         slice[1].validTrue();
          setOpen(false);
       } else {
          slice[1].validFalse();

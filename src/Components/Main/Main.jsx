@@ -2,23 +2,26 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux/";
 import { useActions } from "../Hooks/useActotion";
-import { sagaSlice } from "../../utils/redux/slices/sagaSlice";
+import { listCompositionSlice } from "../../utils/redux/slices/listComposition";
 import main from "./main.module.css";
 import BtnCreate from "../BtnCreate";
 import PatternTable from "../Table/PatternTable/PatternTable";
 
 const Main = () => {
-   const store = useSelector((store) => store.sagaSlice);
-   const slice = useActions(sagaSlice.actions);
+   const compositions = useSelector((state) => state.listComposition);
+   const slice = useActions(listCompositionSlice.actions);
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState("");
 
    useEffect(() => {
-      slice.sagaReadData();
-      if (store.data.length > 0) {
-         setStorage(store.data);
+      slice.readData();
+      setStorage(compositions.data);
+      if (compositions.fail === true) {
+         setTimeout(() => {
+            slice.requestFail();
+         }, 4000);
       }
-   }, [store.data.length]);
+   }, [compositions.data.length, compositions.fail]);
 
    return (
       <>
@@ -41,6 +44,9 @@ const Main = () => {
                   open={isOpen}
                />
             </section>
+         )}
+         {compositions.fail === true && (
+            <div className={main.tmp}>Ошибка: неудалось отправить запрос</div>
          )}
       </>
    );

@@ -6,7 +6,7 @@ import { validFailSlice } from "../../../utils/redux/slices/ValidFailSlice";
 import { editSlice } from "../../../utils/redux/slices/editSlice";
 import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
 import { useActions } from "../../Hooks/useActotion";
-import { sagaSlice } from "../../../utils/redux/slices/sagaSlice";
+import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
 import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
 
 const EditForm = ({
@@ -23,7 +23,7 @@ const EditForm = ({
       inputFieldsSlice.actions,
       editSlice.actions,
       validFailSlice.actions,
-      sagaSlice.actions,
+      listCompositionSlice.actions,
       openOutletSlise.actions,
    ]);
 

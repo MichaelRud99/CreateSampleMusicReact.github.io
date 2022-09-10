@@ -1,92 +1,55 @@
 import { put, call, takeLatest } from "redux-saga/effects";
+import requests from "../../api/requests";
+import requestStorageComposition from "../../api/requestStorageComposition";
+
 import {
-   sagaReadData,
-   sagaSubmit,
+   readData,
+   submit,
+   submtiSuccess,
+   requestFail,
    sagaClear,
    sagaEdit,
    sagaDeleteItem,
    sagaWriteData,
-} from "../slices/sagaSlice";
+} from "../slices/listComposition";
 
 export function* readSaga() {
-   const data = yield call(readData);
-   yield put({ type: sagaWriteData, payload: data });
+   const data = yield call(requestStorageComposition);
+   yield put(sagaWriteData(data));
 }
 
-export function* writeSaga(value) {
-   yield sendData(value.payload);
+export function* writeNewComposition(value) {
+   const data = yield call(requestStorageComposition);
+   let requestAnswer = 0;
+   yield requests(value.payload, "POST").then(
+      (result) => (requestAnswer = result),
+      (err) => (requestAnswer = err)
+   );
+   if (requestAnswer <= 400) {
+      yield put(submtiSuccess([data, value.payload]));
+   } else {
+      yield put(requestFail());
+   }
 }
 
 export function* clearSaga() {
-   const data = yield call(readData);
+   const data = yield call(requestStorageComposition);
    yield data.forEach((value) => {
-      deleteData(value.id);
+      requests([], "DELETE", value.id);
    });
 }
 
 export function* deleteItemSaga(value) {
-   yield deleteData(value.payload.id);
+   yield requests([], "DELETE", value.payload.id);
 }
 
 export function* editSaga(value) {
-   yield editData(value.payload, value.payload.id);
-}
-
-async function readData() {
-   const request = await fetch("http://localhost:3000/storage");
-   const data = await request.json();
-   return data;
-}
-
-function sendData(data) {
-   const XHR = new XMLHttpRequest();
-
-   let urlEncodedData = "",
-      urlEncodedDataPairs = [],
-      name;
-
-   for (name in data) {
-      urlEncodedDataPairs.push(
-         encodeURIComponent(name) + "=" + encodeURIComponent(data[name])
-      );
-   }
-   urlEncodedData = urlEncodedDataPairs.join("&").replace(/%20/g, "+");
-   XHR.open("POST", "http://localhost:3000/storage");
-   XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-   XHR.send(urlEncodedData);
-}
-
-function editData(data, id) {
-   const XHR = new XMLHttpRequest();
-
-   let urlEncodedData = "",
-      urlEncodedDataPairs = [],
-      name;
-
-   for (name in data) {
-      urlEncodedDataPairs.push(
-         encodeURIComponent(name) + "=" + encodeURIComponent(data[name])
-      );
-   }
-
-   urlEncodedData = urlEncodedDataPairs.join("&").replace(/%20/g, "+");
-   XHR.open("PUT", "http://localhost:3000/storage/" + id);
-   XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-   XHR.send(urlEncodedData);
-}
-
-function deleteData(id) {
-   const XHR = new XMLHttpRequest();
-   const urlEncodedData = "";
-
-   XHR.open("DELETE", "http://localhost:3000/storage/" + id);
-   XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-   XHR.send(urlEncodedData);
+   yield requests(value.payload, "PUT", value.payload.id);
 }
 
 export function* watchClickSaga() {
-   yield takeLatest(sagaReadData, readSaga);
-   yield takeLatest(sagaSubmit, writeSaga);
+   yield takeLatest(readData, readSaga);
+   yield takeLatest(submit, writeNewComposition);
    yield takeLatest(sagaClear, clearSaga);
    yield takeLatest(sagaEdit, editSaga);
    yield takeLatest(sagaDeleteItem, deleteItemSaga);

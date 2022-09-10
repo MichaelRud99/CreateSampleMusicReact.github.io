@@ -4,7 +4,7 @@ import ValidFailSlice from "./slices/ValidFailSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./saga/saga";
 import inputFieldsSlice from "./slices/inputFieldsSlice";
-import sagaSlice from "./slices/sagaSlice";
+import listCompositionSlice from "./slices/listComposition"
 import openOutletSlise from "./slices/openOutletSlise";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -14,7 +14,7 @@ const store = configureStore({
       inputFields: inputFieldsSlice,
       edit: editSlice,
       validFail: ValidFailSlice,
-      sagaSlice,
+      listComposition:listCompositionSlice,
       openModalWindow:openOutletSlise,
    },
 
