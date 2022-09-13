@@ -2,12 +2,10 @@ import PatternForm from "../../PatternForm/PatternForm";
 import { useSelector } from "react-redux";
 import editValidation from "../../../utils/validation/editValidation";
 import validation from "../../../utils/validation/validation";
-import { validFailSlice } from "../../../utils/redux/slices/ValidFailSlice";
-import { editSlice } from "../../../utils/redux/slices/editSlice";
 import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
 import { useActions } from "../../Hooks/useActotion";
 import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
-import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
+import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActionSlice";
 
 const EditForm = ({
    storage,
@@ -21,17 +19,15 @@ const EditForm = ({
 }) => {
    const slice = useActions([
       inputFieldsSlice.actions,
-      editSlice.actions,
-      validFailSlice.actions,
       listCompositionSlice.actions,
-      openOutletSlise.actions,
+      interfaceActionSlice.actions,
    ]);
 
-   const enter = useSelector((state) => state.inputFields);
-   let editAlbum = enter.album;
-   let editAuthor = enter.author;
-   let editDataRelease = enter.dataRelease;
-   let editTrack = enter.track;
+   const inputFields = useSelector((state) => state.inputFields);
+   let editAlbum = inputFields.album;
+   let editAuthor = inputFields.author;
+   let editDataRelease = inputFields.dataRelease;
+   let editTrack = inputFields.track;
    const cloneStorage = structuredClone(storage);
 
    const submit = (event) => {
@@ -54,9 +50,9 @@ const EditForm = ({
          localStorage.setItem("storage", JSON.stringify(storage));
          setStorage(cloneStorage);
          slice[0].enterClear();
-         slice[1].editFalse();
-         slice[3].sagaEdit(cloneStorage[index]);
-         slice[4].openTrue();
+         slice[1].edit([cloneStorage[index], index]);
+         slice[2].openTrue();
+         slice[2].editFalse();
       } else {
          slice[2].validFalse();
          event.preventDefault();

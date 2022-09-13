@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import table from "./table.module.css";
 import AddMusic from "../AddMusic/AddMusic";
@@ -14,12 +14,6 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
    const [checkSearch, setCheckSearch] = useState("found");
    const [searchValue, setSearchValue] = useState("");
    const [inProp, setInProp] = useState(false);
-   const [storageSearch, setStorageSearch] = useState(storage);
-
-   useEffect(() => {
-      setStorageSearch(storage);
-   // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [storage.length]);
 
    return (
       <div className={table.frame}>
@@ -31,11 +25,11 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                      <div className={table.flex}>
                         <Search
                            storage={storage}
+                           setStorage={setStorage}
                            setCheckSearch={setCheckSearch}
                            searchValue={searchValue}
                            setSearchValue={setSearchValue}
                            setInProp={setInProp}
-                           setStorageSearch={setStorageSearch}
                         />
 
                         <div className={table.divBtn}>
@@ -44,10 +38,9 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                               setSearchValue={setSearchValue}
                               inProp={inProp}
                               setInProp={setInProp}
-                              storage={storage}
-                              setStorageSearch={setStorageSearch}
+                              setStorage={setStorage}
                            />
-                           <DeleteAll setStorage={setStorage} />
+                           <DeleteAll />
                            <AddMusic
                               storage={storage}
                               setOpen={setOpen}
@@ -75,7 +68,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
 
             <TransitionGroup component={"tbody"}>
                {checkSearch === "found" &&
-                  storageSearch.map((value, index) => {
+                  storage.map((value, index) => {
                      return (
                         <CSSTransition
                            key={value.id}

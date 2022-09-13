@@ -7,6 +7,9 @@ import main from "./main.module.css";
 import BtnCreate from "../BtnCreate";
 import PatternTable from "../Table/PatternTable/PatternTable";
 
+import { CSSTransition } from "react-transition-group";
+import "../transitionComponents.css";
+
 const Main = () => {
    const compositions = useSelector((state) => state.listComposition);
    const slice = useActions(listCompositionSlice.actions);
@@ -16,12 +19,15 @@ const Main = () => {
    useEffect(() => {
       slice.readData();
       setStorage(compositions.data);
+   }, [compositions.data.length, compositions.updateData]);
+
+   useEffect(() => {
       if (compositions.fail === true) {
          setTimeout(() => {
             slice.requestFail();
          }, 4000);
       }
-   }, [compositions.data.length, compositions.fail]);
+   }, [compositions.fail]);
 
    return (
       <>
@@ -45,9 +51,17 @@ const Main = () => {
                />
             </section>
          )}
-         {compositions.fail === true && (
-            <div className={main.tmp}>Ошибка: неудалось отправить запрос</div>
-         )}
+         <CSSTransition
+            in={compositions.fail}
+            timeout={900}
+            classNames="network-error"
+            mountOnEnter
+            unmountOnExit
+         >
+            <div className={main.networkError}>
+               Ошибка: неудалось отправить запрос
+            </div>
+         </CSSTransition>
       </>
    );
 };

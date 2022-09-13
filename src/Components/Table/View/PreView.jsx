@@ -4,15 +4,15 @@ import indexCss from "../../index.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useActions } from "../../Hooks/useActotion";
-import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
+import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActionSlice";
 
 const PreView = ({ id }) => {
-   const state = useSelector((state) => state.openModalWindow.open);
-   const slice = useActions(openOutletSlise.actions);
+   const open = useSelector((state) => state.interfaceActions.open);
+   const slice = useActions(interfaceActionSlice.actions);
 
    return (
       <>
-         {state === true ? (
+         {open === true ? (
             <Link
                className={
                   viewCss.btn +

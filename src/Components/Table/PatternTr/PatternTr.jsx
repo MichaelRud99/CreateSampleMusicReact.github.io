@@ -16,7 +16,7 @@ const PatternTr = ({
    album,
    albumPhoto,
    dataRelease,
-   setOpen
+   setOpen,
 }) => {
    return (
       <tr>

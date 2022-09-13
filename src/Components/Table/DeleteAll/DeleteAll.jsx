@@ -5,11 +5,10 @@ import indexCss from "../../index.module.css";
 import { useActions } from "../../Hooks/useActotion";
 import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
 
-const DeleteAll = ({ setStorage }) => {
+const DeleteAll = () => {
    const slice = useActions(listCompositionSlice.actions);
    const delet = () => {
-      setStorage("");
-      slice.sagaClear();
+      slice.clearData();
    };
    return (
       <input

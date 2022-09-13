@@ -10,13 +10,7 @@ const BtnCreate = ({ storage, setOpen, open }) => {
          <input
             onClick={() => setOpen(true)}
             className={
-               main.btn +
-               " " +
-               btnCreate.btn +
-               " " +
-               indexCss.transitionBackColor +
-               " " +
-               indexCss.transitionBorderColor
+               main.btn + " " + btnCreate.btn + " " + indexCss.transitionBtn
             }
             defaultValue="создать"
             type="button"

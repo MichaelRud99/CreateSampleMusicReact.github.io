@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import editValidation from "../../../utils/validation/editValidation";
 
 const ValidText = ({ validationText, initialValue, outputValue, setValue }) => {
-   const edit = useSelector((state) => state.edit.edit);
-   const validFail = useSelector((state) => state.validFail.valid);
+   const edit = useSelector((state) => state.interfaceActions.edit);
+   const validFail = useSelector((state) => state.interfaceActions.valid);
 
    if (edit === true) {
       outputValue = editValidation(outputValue, initialValue);

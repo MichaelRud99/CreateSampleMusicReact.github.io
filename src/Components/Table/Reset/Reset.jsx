@@ -1,9 +1,11 @@
 import React from "react";
+import { CSSTransition } from "react-transition-group";
+import { useSelector } from "react-redux";
 import reset from "./reset.module.css";
 import main from "../../Main/main.module.css";
 import indexCss from "../../index.module.css";
 import history from "../../../utils/history/history";
-import { CSSTransition } from "react-transition-group";
+
 import "../../transitionComponents.css";
 
 const Reset = ({
@@ -11,14 +13,15 @@ const Reset = ({
    setSearchValue,
    inProp,
    setInProp,
-   storage,
-   setStorageSearch,
+   setStorage,
 }) => {
+   const compositions = useSelector((state) => state.listComposition.data);
+
    const rst = () => {
       history.push(`/monsegard3.github.io/`);
       setSearchValue("");
       setCheckSearch("found");
-      setStorageSearch(storage);
+      setStorage(compositions);
       setInProp(false);
    };
 

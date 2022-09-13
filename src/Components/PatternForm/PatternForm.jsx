@@ -13,11 +13,9 @@ import ValidDate from "../Validation/ValidDate/ValidDate";
 import DeleteItem from "./DeleteItem/DeleteItem";
 import DownloadPhoto from "./DownloadPhoto/DownloadPhoto";
 
-import { editSlice } from "../../utils/redux/slices/editSlice";
-import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
 import { useActions } from "../Hooks/useActotion";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
-import { openOutletSlise } from "../../utils/redux/slices/openOutletSlise";
+import { interfaceActionSlice } from "../../utils/redux/slices/interfaceActionSlice";
 
 const PatternForm = ({
    storage,
@@ -30,29 +28,24 @@ const PatternForm = ({
    album,
    submit,
 }) => {
-   const slice = useActions([
-      editSlice.actions,
-      validFailSlice.actions,
-      openOutletSlise.actions,
-   ]);
-
+   const slice = useActions(interfaceActionSlice.actions);
    const outputFields = useActions(inputFieldsSlice.actions);
-   const enter = useSelector((state) => state.inputFields);
-   const outputAlbum = enter.album;
-   const outputAuthor = enter.author;
-   const outputDataRelease = enter.dataRelease;
-   const outputTrack = enter.track;
-   const edit = useSelector((state) => state.edit.edit);
+   const inputFields = useSelector((state) => state.inputFields);
+   const outputAlbum = inputFields.album;
+   const outputAuthor = inputFields.author;
+   const outputDataRelease = inputFields.dataRelease;
+   const outputTrack = inputFields.track;
+   const edit = useSelector((state) => state.interfaceActions.edit);
 
    const close = () => {
       setOpen(false);
-      slice[1].validTrue();
+      slice.validTrue();
    };
 
    const editClose = () => {
-      slice[0].editFalse();
-      slice[1].validTrue();
-      slice[2].openTrue();
+      slice.editFalse();
+      slice.validTrue();
+      slice.openTrue();
    };
 
    return (

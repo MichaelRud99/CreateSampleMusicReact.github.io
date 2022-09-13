@@ -4,11 +4,11 @@ import viewCss from "./view.module.css";
 import indexCss from "../../index.module.css";
 import { Link } from "react-router-dom";
 import { useActions } from "../../Hooks/useActotion";
-import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
+import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActionSlice";
 
 const View = ({ id, author, dataRelease, track, album, albumPhoto }) => {
    const [view, setView] = useState(true);
-   const slice = useActions(openOutletSlise.actions);
+   const slice = useActions(interfaceActionSlice.actions);
 
    const close = () => {
       setView(false);

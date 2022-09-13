@@ -4,23 +4,23 @@ import { useActions } from "../Hooks/useActotion";
 import validation from "../../utils/validation/validation";
 import PatternForm from "../PatternForm/PatternForm";
 
-import { validFailSlice } from "../../utils/redux/slices/ValidFailSlice";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
 import { listCompositionSlice } from "../../utils/redux/slices/listComposition";
+import { interfaceActionSlice } from "../../utils/redux/slices/interfaceActionSlice";
 
 const CreateForm = ({ storage, setStorage, setOpen }) => {
    const slice = useActions([
       inputFieldsSlice.actions,
-      validFailSlice.actions,
       listCompositionSlice.actions,
+      interfaceActionSlice.actions,
    ]);
 
-   const state = useSelector((state) => state.inputFields);
-   const albumPhoto = state.albumPhoto;
-   const album = state.album;
-   const author = state.author;
-   const dataRelease = state.dataRelease;
-   const track = state.track;
+   const inputFields = useSelector((state) => state.inputFields);
+   const albumPhoto = inputFields.albumPhoto;
+   const album = inputFields.album;
+   const author = inputFields.author;
+   const dataRelease = inputFields.dataRelease;
+   const track = inputFields.track;
 
    const submit = (event) => {
       if (validation(author, track, album, dataRelease) === true) {
@@ -35,11 +35,11 @@ const CreateForm = ({ storage, setStorage, setOpen }) => {
          tmp.albumPhoto = albumPhoto;
          cloneStorage[cloneStorage.length] = tmp;
          slice[0].enterClear();
-         slice[2].submit(tmp);
-         slice[1].validTrue();
+         slice[1].submit(tmp);
+         slice[2].validTrue();
          setOpen(false);
       } else {
-         slice[1].validFalse();
+         slice[2].validFalse();
          event.preventDefault();
       }
    };

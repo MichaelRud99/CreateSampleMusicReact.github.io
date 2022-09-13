@@ -5,24 +5,22 @@ import deleteItem from "./deleteItem.module.css";
 import indexCss from "../../index.module.css";
 import { useActions } from "../../Hooks/useActotion";
 import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
-import { editSlice } from "../../../utils/redux/slices/editSlice";
-import { openOutletSlise } from "../../../utils/redux/slices/openOutletSlise";
+import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActionSlice";
 
 const DeleteItem = ({ storage, setStorage, index }) => {
    const slice = useActions([
       listCompositionSlice.actions,
-      editSlice.actions,
-      openOutletSlise.actions,
+      interfaceActionSlice.actions,
    ]);
 
    const delet = () => {
       const cloneStorage = structuredClone(storage);
-      slice[0].sagaDeleteItem(storage[index]);
-      slice[0].sagaReadData();
+      slice[0].delet([cloneStorage[index].id, index]);
+      slice[0].readData();
       cloneStorage.splice(index, 1);
       setStorage(cloneStorage);
       slice[1].editFalse();
-      slice[2].openTrue();
+      slice[1].openTrue();
    };
 
    return (

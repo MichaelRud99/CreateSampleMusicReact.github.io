@@ -3,16 +3,18 @@ import search from "./search.module.css";
 import indexCss from "../../index.module.css";
 import { useSearchParams } from "react-router-dom";
 import searchLetters from "../../../utils/searchLetters/searchLetters";
+import { useSelector } from "react-redux";
 
 const Search = ({
    storage,
+   setStorage,
    searchValue,
    setSearchValue,
    setCheckSearch,
-   setStorageSearch,
    setInProp,
 }) => {
    let [, setSearchParams] = useSearchParams();
+   const compositions = useSelector((state) => state.listComposition.data);
 
    const changes = (event) => {
       setSearchValue(event.target.value);
@@ -20,7 +22,6 @@ const Search = ({
 
    const submit = (event) => {
       searchValue = searchValue.toLowerCase();
-
       const searchId = storage.filter((element) => element.id === searchValue);
       const SearchAuthor = storage.map((value) => value.author.toLowerCase());
       const SearchTrack = storage.map((value) => value.track.toLowerCase());
@@ -31,10 +32,10 @@ const Search = ({
 
       if (event.target.value === "") {
          setInProp(false);
-         setStorageSearch(storage);
+         setStorage(compositions);
          setCheckSearch("found");
       } else if (searchId.length > 0) {
-         setStorageSearch(searchId);
+         setStorage(searchId);
          setCheckSearch("found");
       } else if (searchLetters(searchValue, SearchAuthor).length > 0) {
          uniqueArray = searchLetters(searchValue, SearchAuthor);
@@ -45,7 +46,7 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorageSearch(answer);
+         setStorage(answer);
          setCheckSearch("found");
          setInProp(true);
       } else if (searchLetters(searchValue, SearchTrack).length > 0) {
@@ -57,7 +58,7 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorageSearch(answer);
+         setStorage(answer);
          setCheckSearch("found");
          setInProp(true);
       } else if (searchLetters(searchValue, SearchAlbum).length > 0) {
@@ -69,7 +70,7 @@ const Search = ({
             answer = currentStorage.concat(storageSearch);
             currentStorage = answer;
          }
-         setStorageSearch(answer);
+         setStorage(answer);
          setCheckSearch("found");
          setInProp(true);
       } else {

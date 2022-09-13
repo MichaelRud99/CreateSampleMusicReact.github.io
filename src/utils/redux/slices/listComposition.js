@@ -2,42 +2,65 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const listCompositionSlice = createSlice({
    name: "listComposition",
-   initialState: { data: [], fail: false },
+   initialState: { data: [], fail: false, updateData: false },
    reducers: {
-      submit: (state, newComposition) => {
-         state.newComposition = newComposition.payload;
+      writeData: (state, data) => {
+         state.data = data.payload;
       },
-      submtiSuccess: (state, arrPayload) => {
-         let compositions = arrPayload.payload[0];
-         const newComposition = arrPayload.payload[1];
-         state.data = compositions.concat(newComposition);
+      readData: () => {},
+      submit: (state, сomposition) => {
+         state.сomposition = сomposition.payload;
+      },
+      submtiSuccess: (state, arr) => {
+         let compositions = arr.payload[0];
+         state.data = compositions;
+         state.updateData = !state.updateData;
       },
       requestFail: (state) => {
          state.fail = !state.fail;
       },
-      sagaEdit: (state, data) => {
-         state.data = data.payload;
+      edit: (state, arr) => {
+         const editComposition = arr.payload[0];
+         state.сomposition = editComposition.payload;
       },
-      sagaDeleteItem: (state, data) => {
-         state.data = data.payload;
+      editSuccess: (state, arr) => {
+         let compositions = arr.payload[0];
+         const composition = arr.payload[1][0];
+         const index = arr.payload[1][1];
+         compositions[index] = composition;
+         state.data = compositions;
+         state.updateData = !state.updateData;
       },
-      sagaWriteData: (state, data) => {
-         state.data = data.payload;
+      delet: (state, index) => {
+         state.сomposition = index.payload;
       },
-      readData: () => {},
-      sagaClear: (state) => {},
+      deleteSuccess: (state, arr) => {
+         let compositions = arr.payload[0];
+         const index = arr.payload[1][1];
+         compositions.slice(index);
+         state.data = compositions;
+         state.updateData = !state.updateData;
+      },
+      clearData: () => {},
+      clearDataSuccess: (state) => {
+         state.data = [];
+         state.updateData = !state.updateData;
+      },
    },
 });
 
 export const {
+   writeData,
+   readData,
    submit,
    submtiSuccess,
    requestFail,
-   readData,
-   sagaClear,
-   sagaEdit,
-   sagaDeleteItem,
-   sagaWriteData,
+   edit,
+   editSuccess,
+   delet,
+   deleteSuccess,
+   clearData,
+   clearDataSuccess,
 } = listCompositionSlice.actions;
 
 export default listCompositionSlice.reducer;
