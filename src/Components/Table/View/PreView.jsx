@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useActions } from "../../Hooks/useActotion";
 import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActionSlice";
+import {  selectorInterfaceOpen } from "../../../utils/redux/selectors";
 
 const PreView = ({ id }) => {
-   const open = useSelector((state) => state.interfaceActions.open);
+   const open = useSelector(selectorInterfaceOpen);
    const slice = useActions(interfaceActionSlice.actions);
 
    return (

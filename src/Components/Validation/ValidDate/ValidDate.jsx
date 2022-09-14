@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { selectorInterfaceEdit, selectorInterfaceValid } from "../../../utils/redux/selectors";
 import editValidation from "../../../utils/validation/editValidation";
 import validation from "../validation.module.css";
 
 const ValidDate = ({ validationDate, initialValue, outputValue, setValue }) => {
-   const edit = useSelector((state) => state.interfaceActions.edit);
-   const validFail = useSelector((state) => state.interfaceActions.valid);
+   const edit = useSelector(selectorInterfaceEdit);
+   const validFail = useSelector(selectorInterfaceValid);
 
    if (edit === true) {
       outputValue = editValidation(outputValue, initialValue);

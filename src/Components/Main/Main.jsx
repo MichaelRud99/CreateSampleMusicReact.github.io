@@ -9,9 +9,10 @@ import PatternTable from "../Table/PatternTable/PatternTable";
 
 import { CSSTransition } from "react-transition-group";
 import "../transitionComponents.css";
+import { selectorListComposition } from "../../utils/redux/selectors";
 
 const Main = () => {
-   const compositions = useSelector((state) => state.listComposition);
+   const compositions = useSelector(selectorListComposition);
    const slice = useActions(listCompositionSlice.actions);
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState("");

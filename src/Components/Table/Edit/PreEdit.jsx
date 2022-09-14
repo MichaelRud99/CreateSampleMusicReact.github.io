@@ -6,10 +6,11 @@ import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActio
 
 import { useActions } from "../../Hooks/useActotion";
 import { useSelector } from "react-redux";
+import { selectorInterfaceOpen } from "../../../utils/redux/selectors";
 
 const PreEdit = ({ id }) => {
    const slice = useActions(interfaceActionSlice.actions);
-   const open = useSelector((state) => state.interfaceActions.open);
+   const open = useSelector(selectorInterfaceOpen);
 
    const tmp = () => {
       slice.editTrue();

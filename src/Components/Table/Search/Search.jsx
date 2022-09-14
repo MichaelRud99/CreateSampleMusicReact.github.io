@@ -5,6 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import searchLetters from "../../../utils/searchLetters/searchLetters";
 import { useSelector } from "react-redux";
 
+import { selectorListCompositionData } from "../../../utils/redux/selectors";
+
 const Search = ({
    storage,
    setStorage,
@@ -14,7 +16,7 @@ const Search = ({
    setInProp,
 }) => {
    let [, setSearchParams] = useSearchParams();
-   const compositions = useSelector((state) => state.listComposition.data);
+   const compositions = useSelector(selectorListCompositionData);
 
    const changes = (event) => {
       setSearchValue(event.target.value);

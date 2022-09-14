@@ -7,6 +7,7 @@ import indexCss from "../../index.module.css";
 import history from "../../../utils/history/history";
 
 import "../../transitionComponents.css";
+import { selectorListCompositionData } from "../../../utils/redux/selectors";
 
 const Reset = ({
    setCheckSearch,
@@ -15,7 +16,7 @@ const Reset = ({
    setInProp,
    setStorage,
 }) => {
-   const compositions = useSelector((state) => state.listComposition.data);
+   const compositions = useSelector(selectorListCompositionData);
 
    const rst = () => {
       history.push(`/monsegard3.github.io/`);

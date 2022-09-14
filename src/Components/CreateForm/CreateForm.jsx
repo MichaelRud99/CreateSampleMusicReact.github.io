@@ -7,6 +7,7 @@ import PatternForm from "../PatternForm/PatternForm";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
 import { listCompositionSlice } from "../../utils/redux/slices/listComposition";
 import { interfaceActionSlice } from "../../utils/redux/slices/interfaceActionSlice";
+import { selectorInputFields } from "../../utils/redux/selectors";
 
 const CreateForm = ({ storage, setStorage, setOpen }) => {
    const slice = useActions([
@@ -15,7 +16,7 @@ const CreateForm = ({ storage, setStorage, setOpen }) => {
       interfaceActionSlice.actions,
    ]);
 
-   const inputFields = useSelector((state) => state.inputFields);
+   const inputFields = useSelector(selectorInputFields);
    const albumPhoto = inputFields.albumPhoto;
    const album = inputFields.album;
    const author = inputFields.author;
