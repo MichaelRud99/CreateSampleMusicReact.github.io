@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useActions } from "../Hooks/useActotion";
+import uniqid from "uniqid";
 import validation from "../../utils/validation/validation";
 import PatternForm from "../PatternForm/PatternForm";
 
@@ -27,8 +28,7 @@ const CreateForm = ({ storage, setStorage, setOpen }) => {
       if (validation(author, track, album, dataRelease) === true) {
          let tmp = {};
          const cloneStorage = structuredClone(storage);
-         const rnd = Math.random() * 10;
-         tmp.id = Math.round((Math.random() * 10000) / rnd);
+         tmp.id = uniqid.time();
          tmp.author = author;
          tmp.dataRelease = dataRelease;
          tmp.track = track;
