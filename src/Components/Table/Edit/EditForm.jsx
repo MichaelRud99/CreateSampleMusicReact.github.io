@@ -6,7 +6,7 @@ import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
 import { useActions } from "../../Hooks/useActotion";
 import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
 import { interfaceActionSlice } from "../../../utils/redux/slices/interfaceActionSlice";
-import { selectorInputFields } from "../../../utils/redux/selectors";
+import { selectInputFields } from "../../../utils/redux/selectors";
 
 const EditForm = ({
    storage,
@@ -24,11 +24,11 @@ const EditForm = ({
       interfaceActionSlice.actions,
    ]);
 
-   const inputFields = useSelector(selectorInputFields);
-   let editAlbum = inputFields.album;
-   let editAuthor = inputFields.author;
-   let editDataRelease = inputFields.dataRelease;
-   let editTrack = inputFields.track;
+   const inputFields = useSelector(selectInputFields);
+   let editAlbum = inputFields[0];
+   let editAuthor = inputFields[1];
+   let editDataRelease = inputFields[2];
+   let editTrack = inputFields[3];
    const cloneStorage = structuredClone(storage);
 
    const submit = (event) => {
@@ -48,7 +48,6 @@ const EditForm = ({
             dataRelease
          );
 
-         localStorage.setItem("storage", JSON.stringify(storage));
          setStorage(cloneStorage);
          slice[0].enterClear();
          slice[1].edit([cloneStorage[index], index]);

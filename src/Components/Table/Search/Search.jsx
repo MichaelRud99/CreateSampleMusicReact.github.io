@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 import { selectorListCompositionData } from "../../../utils/redux/selectors";
 
 const Search = ({
-   storage,
    setStorage,
    searchValue,
    setSearchValue,

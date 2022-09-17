@@ -8,7 +8,7 @@ import PatternForm from "../PatternForm/PatternForm";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
 import { listCompositionSlice } from "../../utils/redux/slices/listComposition";
 import { interfaceActionSlice } from "../../utils/redux/slices/interfaceActionSlice";
-import { selectorInputFields } from "../../utils/redux/selectors";
+import { selectInputFields } from "../../utils/redux/selectors";
 
 const CreateForm = ({ storage, setStorage, setOpen }) => {
    const slice = useActions([
@@ -17,12 +17,12 @@ const CreateForm = ({ storage, setStorage, setOpen }) => {
       interfaceActionSlice.actions,
    ]);
 
-   const inputFields = useSelector(selectorInputFields);
-   const albumPhoto = inputFields.albumPhoto;
-   const album = inputFields.album;
-   const author = inputFields.author;
-   const dataRelease = inputFields.dataRelease;
-   const track = inputFields.track;
+   const inputFields = useSelector(selectInputFields);
+   const album = inputFields[0];
+   const author = inputFields[1];
+   const dataRelease = inputFields[2];
+   const track = inputFields[3];
+   const albumPhoto = inputFields[4];
 
    const submit = (event) => {
       if (validation(author, track, album, dataRelease) === true) {

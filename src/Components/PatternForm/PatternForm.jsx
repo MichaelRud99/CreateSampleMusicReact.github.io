@@ -16,7 +16,10 @@ import DownloadPhoto from "./DownloadPhoto/DownloadPhoto";
 import { useActions } from "../Hooks/useActotion";
 import { inputFieldsSlice } from "../../utils/redux/slices/inputFieldsSlice";
 import { interfaceActionSlice } from "../../utils/redux/slices/interfaceActionSlice";
-import { selectorInputFields, selectorInterfaceActions, selectorInterfaceEdit } from "../../utils/redux/selectors";
+import {
+   selectInputFields,
+   selectorInterfaceEdit,
+} from "../../utils/redux/selectors";
 
 const PatternForm = ({
    storage,
@@ -31,11 +34,11 @@ const PatternForm = ({
 }) => {
    const slice = useActions(interfaceActionSlice.actions);
    const outputFields = useActions(inputFieldsSlice.actions);
-   const inputFields = useSelector(selectorInputFields);
-   const outputAlbum = inputFields.album;
-   const outputAuthor = inputFields.author;
-   const outputDataRelease = inputFields.dataRelease;
-   const outputTrack = inputFields.track;
+   const inputFields = useSelector(selectInputFields);
+   const outputAlbum = inputFields[0];
+   const outputAuthor = inputFields[1];
+   const outputDataRelease = inputFields[2];
+   const outputTrack = inputFields[3];
    const edit = useSelector(selectorInterfaceEdit);
 
    const close = () => {

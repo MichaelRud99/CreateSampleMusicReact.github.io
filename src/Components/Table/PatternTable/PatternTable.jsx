@@ -24,7 +24,6 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
                   element={
                      <div className={table.flex}>
                         <Search
-                           storage={storage}
                            setStorage={setStorage}
                            setCheckSearch={setCheckSearch}
                            searchValue={searchValue}
