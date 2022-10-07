@@ -18,11 +18,11 @@ const CreateForm = ({ storage, setStorage, setOpen }) => {
    ]);
 
    const inputFields = useSelector(selectInputFields);
-   const album = inputFields[0];
-   const author = inputFields[1];
-   const dataRelease = inputFields[2];
-   const track = inputFields[3];
-   const albumPhoto = inputFields[4];
+   const album = inputFields.album;
+   const author = inputFields.author;
+   const dataRelease = inputFields.dataRelease;
+   const track = inputFields.track;
+   const albumPhoto = inputFields.albumPhoto;
 
    const submit = (event) => {
       if (validation(author, track, album, dataRelease) === true) {

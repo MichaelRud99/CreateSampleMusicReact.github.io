@@ -12,33 +12,30 @@ export const listCompositionSlice = createSlice({
          state.сomposition = сomposition.payload;
       },
       submtiSuccess: (state, arr) => {
-         let compositions = arr.payload[0];
-         state.data = compositions;
+         const composition = arr.payload;
+         state.data.splice(state.data.length, 0, composition);
          state.updateData = !state.updateData;
       },
       requestFail: (state) => {
          state.fail = !state.fail;
       },
       edit: (state, arr) => {
-         const editComposition = arr.payload[0];
+         const editComposition = arr.payload;
          state.сomposition = editComposition.payload;
       },
       editSuccess: (state, arr) => {
-         let compositions = arr.payload[0];
-         const composition = arr.payload[1][0];
-         const index = arr.payload[1][1];
-         compositions[index] = composition;
-         state.data = compositions;
+         const composition = arr.payload[0];
+         const index = arr.payload[1];
+         state.data.splice(index, 1);
+         state.data.splice(index, 0, composition);
          state.updateData = !state.updateData;
       },
       delet: (state, index) => {
          state.сomposition = index.payload;
       },
       deleteSuccess: (state, arr) => {
-         let compositions = arr.payload[0];
-         const index = arr.payload[1][1];
-         compositions.slice(index);
-         state.data = compositions;
+         const index = arr.payload[1];
+         state.data.splice(index, 1);
          state.updateData = !state.updateData;
       },
       clearData: () => {},

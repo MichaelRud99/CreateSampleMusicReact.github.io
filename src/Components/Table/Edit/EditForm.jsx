@@ -25,10 +25,10 @@ const EditForm = ({
    ]);
 
    const inputFields = useSelector(selectInputFields);
-   let editAlbum = inputFields[0];
-   let editAuthor = inputFields[1];
-   let editDataRelease = inputFields[2];
-   let editTrack = inputFields[3];
+   let editAlbum = inputFields.album;
+   let editAuthor = inputFields.author;
+   let editDataRelease = inputFields.dataRelease;
+   let editTrack = inputFields.track;
    const cloneStorage = structuredClone(storage);
 
    const submit = (event) => {
