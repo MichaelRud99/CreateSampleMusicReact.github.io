@@ -63,7 +63,7 @@ const View = ({ id, author, dataRelease, track, album, albumPhoto }) => {
                         " " +
                         indexCss.transitionBtn
                      }
-                     to="/monsegard3.github.io/"
+                     to="/MichaelRud99/CreateSampleMusicReact.github.io/"
                   >
                      Закрыть
                   </Link>

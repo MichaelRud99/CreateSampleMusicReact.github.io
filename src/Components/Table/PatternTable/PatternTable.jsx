@@ -20,7 +20,7 @@ const PatternTable = ({ storage, setStorage, setOpen, open }) => {
          <BrowserRouter>
             <Routes>
                <Route
-                  path="/monsegard3.github.io/"
+                  path="/MichaelRud99/CreateSampleMusicReact.github.io/"
                   element={
                      <div className={table.flex}>
                         <Search

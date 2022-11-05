@@ -29,7 +29,7 @@ const DeleteItem = ({ storage, setStorage, index }) => {
          className={
             main.btn + " " + deleteItem.delete + " " + indexCss.transitionBtn
          }
-         to="/monsegard3.github.io/"
+         to="/MichaelRud99/CreateSampleMusicReact.github.io/"
       >
          Удалить
       </Link>

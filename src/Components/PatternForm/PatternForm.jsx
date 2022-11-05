@@ -76,7 +76,7 @@ const PatternForm = ({
                      " " +
                      indexCss.transitionColor
                   }
-                  to="/monsegard3.github.io/"
+                  to="/MichaelRud99/CreateSampleMusicReact.github.io/"
                ></Link>
             )}
          </div>
@@ -153,7 +153,7 @@ const PatternForm = ({
                            " " +
                            indexCss.transitionBtn
                         }
-                        to="/monsegard3.github.io/"
+                        to="/MichaelRud99/CreateSampleMusicReact.github.io/"
                      >
                         Изменить
                      </Link>

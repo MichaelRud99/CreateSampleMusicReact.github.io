@@ -28,7 +28,7 @@ const PatternTr = ({
          <BrowserRouter>
             <Routes>
                <Route
-                  path="/monsegard3.github.io/"
+                  path="/MichaelRud99/CreateSampleMusicReact.github.io/"
                   element={
                      <>
                         <td>

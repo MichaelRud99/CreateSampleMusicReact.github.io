@@ -24,7 +24,7 @@ const PreEdit = ({ id }) => {
                <Link
                   onClick={tmp}
                   className={patternForm.btn + " " + editCss.edit}
-                  to={`/CreateSampleMusicReact.github.io/Edit/${id}`}
+                  to={`/MichaelRud99/CreateSampleMusicReact.github.io/Edit/${id}`}
                ></Link>
             </>
          ) : (
