@@ -22,7 +22,7 @@ const PreView = ({ id }) => {
                   " " +
                   indexCss.transitionColor
                }
-               to={`/monsegard3.github.io/View/${id}`}
+               to={`/CreateSampleMusicReact.github.io/View/${id}`}
                onClick={() => slice.openFalse()}
             ></Link>
          ) : (
