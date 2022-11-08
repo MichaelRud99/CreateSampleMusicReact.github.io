@@ -1,31 +1,57 @@
-# Проект для создания подборки любимых музыкальных произведений 
+<h1 align="center">Create sample music</h1>
 
-На писанный на React c использованием библиотек:
+## Table of Contents
 
-## react-redux
+-  [Overview](#overview)
+-  [Built With](#built-with)
+-  [How to use](#how-to-use)
+-  [Contact](#contact)
+-  [Acknowledgements](#acknowledgements)
 
-в данном проекте используется редукс со слайсами:
-1. слайс полей ввода
-2. слайс для работы сос списокм композиций
-3. слайс для работы с интерфейсом приложения
+## Overview
 
-## redux-saga
+![screenshot](./public/img/StartedWindow.png)
 
-производиться работа с сагами для взаимодействия с сервером
-в api используеться XML и fecth запросы
+Create sample music home page
 
-## react-router
+### Built With
 
-библиотке для создания переходов на конкретный трек по id с использованием модального окна
+The project is built on a JS-library for creating a user interface React using libraries:
+-  react-redux
+-  react-router
+-  redux-saga
+-  react-transition-group
+-  normalizr
+-  uniqid
+-  sass
 
-### react-transition-group
+## How To Use
 
-для созданий анимаций при добавдении/удалении изменения композиции
+For correct use, you need to install the following dependencies:
+1. npm install (install node.js)
+2. npm install redux
+3. npm install @reduxjs/toolkit
+4. npm install react-router
+5. npm install redux-saga
+6. npm install react-transition-group --save (for create components with animation transition)
+8. npm install uniqid (for create unique id)
+9. npm install -g sass
+10. npm install -g json-server (for the local server "full fake REST API")
 
-## normalizr
+## Acknowledgements
 
-библиотека для нормализации CSS чтобы во всех браузерах стили смотрелись одинаково
+-  [Node.js](https://nodejs.org/)
+-  [React](https://reactjs.org/)
+-  [react-redux](https://react-redux.js.org/)
+-  [react-router](https://reactrouter.com/en/main)
+-  [redux-saga](https://redux-saga.js.org/)
+-  [react-transition-group](https://reactcommunity.org/react-transition-group/)
+-  [normalizr](https://necolas.github.io/normalize.css/8.0.1/normalize.css)
+-  [uniqid](https://www.npmjs.com/package/uniqid)
+-  [sass](https://sass-scss.ru/install/)
+-  [json-server](https://github.com/typicode/json-server)
 
-## uniqid
+## Contact
 
-библиотека для создания уникальных id 
+-  GitHub [MichaelRud99](https://github.com/MichaelRud99)
+-  VK [Michael Rudenok](https://vk.com/id98146849)
