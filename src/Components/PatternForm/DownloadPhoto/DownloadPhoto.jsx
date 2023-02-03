@@ -13,20 +13,22 @@ const DownloadPhoto = () => {
       const imgInp = section[2].querySelector("#imgInp");
       const paragraf = section[2].querySelector("#paragraf");
 
-      imgInp.onchange = (evt) => {
+
+      imgInp.onchange = () => {
          const [file] = imgInp.files;
          if (file) {
             paragraf.innerText = file.name;
             if (file.size / 1024 > 70) {
-               setBig(true);
+               setBig(false);
             } else {
                setBig(false);
             }
-            let reader = new FileReader();
+
+            /*             let reader = new FileReader();
             reader.onloadend = function () {
                inputFields.enterAlbumPhoto(reader.result);
             };
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(file); */
          }
       };
    };

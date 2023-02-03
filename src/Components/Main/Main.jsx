@@ -17,8 +17,10 @@ const Main = () => {
    const [isOpen, setOpen] = useState(false);
    const [storage, setStorage] = useState("");
 
+
    useEffect(() => {
       slice.readData();
+      /* slice.readGif(); */
       setStorage(compositions.data);
    }, [compositions.data.length, compositions.updateData]);
 
@@ -30,8 +32,64 @@ const Main = () => {
       }
    }, [compositions.fail]);
 
+   /* вызываеться по onLoad */
+   function draw() {
+      if (compositions.gif.length !== 0) {
+         let w = 0;
+         compositions.gif.forEach((element) => {
+            w = w + element.delay;
+         });
+         setInterval(() => {
+            document.getElementById("my-img").src = URL.createObjectURL(
+               new Blob([compositions.gif[0].colorTable[0].buffer])
+            );
+         }, w);
+      } else {
+         console.log("not found");
+      }
+   }
+
+   function input() {
+      setTimeout(() => {
+         document
+            .querySelector("#inputImage")
+            .addEventListener("change", function () {
+               debugger
+               var reader = new FileReader();
+               reader.onload = function () {
+                  debugger
+                  var arrayBuffer = new Uint8Array(reader.result);
+                  document.getElementById("newImg").src = URL.createObjectURL(
+                     new Blob([arrayBuffer])
+                  );
+               };
+               reader.readAsArrayBuffer(this.files[0]);
+            });
+      }, 1);
+   }
+
    return (
       <>
+                  <div onLoad={draw()}>
+            <img
+               width="150px"
+               height="150px"
+               id="my-img"
+               src="https://i.imgur.com/A7Ly42B.gif"
+               alt="tmp"
+            />
+         </div>
+         <div onLoad={input()}>
+            <input type="file" id="inputImage" />
+            <img
+               width="150px"
+               height="150px"
+               id="newImg"
+               src="https://i.imgur.com/A7Ly42B.gif"
+               alt="tmp"
+            />
+         </div>
+
          {storage.length === 0 ? (
             <section className={main.flex}>
                <h1 className={main.title}>

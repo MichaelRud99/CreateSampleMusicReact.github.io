@@ -16,13 +16,21 @@ import {
    deleteSuccess,
    clearData,
    clearDataSuccess,
+   readGif,
+   writeGif,
 } from "../slices/listComposition";
+import requestGif from "../../api/requestGif";
 
 let requestAnswer = 0;
 
 export function* read() {
    const data = yield call(requestStorageComposition);
    yield put(writeData(data));
+}
+
+export function* tmp() {
+   const arrGif = yield call(requestGif);
+   yield put(writeGif(arrGif));
 }
 
 export function* writeNewComposition(value) {
@@ -66,6 +74,7 @@ export function* watchClickSaga() {
    yield takeLatest(clearData, clearDataGenerator);
    yield takeLatest(delet, deleteComposition);
    yield takeLatest(edit, editComposition);
+   yield takeLatest(readGif, tmp);
 }
 
 export default function* rootSaga() {

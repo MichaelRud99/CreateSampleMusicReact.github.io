@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const listCompositionSlice = createSlice({
    name: "listComposition",
-   initialState: { data: [], fail: false, updateData: false },
+   initialState: { data: [], fail: false, updateData: false, gif: [] },
    reducers: {
       writeData: (state, data) => {
          state.data = data.payload;
@@ -43,6 +43,10 @@ export const listCompositionSlice = createSlice({
          state.data = [];
          state.updateData = !state.updateData;
       },
+      writeGif: (state, gif) => {
+         state.gif = gif.payload;
+      },
+      readGif: () => {},
    },
 });
 
@@ -58,6 +62,8 @@ export const {
    deleteSuccess,
    clearData,
    clearDataSuccess,
+   writeGif,
+   readGif,
 } = listCompositionSlice.actions;
 
 export default listCompositionSlice.reducer;
