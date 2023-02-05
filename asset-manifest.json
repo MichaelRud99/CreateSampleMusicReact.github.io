@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MichaelRud99/CreateSampleMusicReact.github.io/static/css/main.44153d35.css",
-    "main.js": "/MichaelRud99/CreateSampleMusicReact.github.io/static/js/main.62d31251.js",
-    "static/media/backgroundImg.png": "/MichaelRud99/CreateSampleMusicReact.github.io/static/media/backgroundImg.c31d2315e64e8efdc104.png",
-    "static/media/camera-computer-icons-photography-clip-art-camera-vector-5ad18a93b30fa5.svg": "/MichaelRud99/CreateSampleMusicReact.github.io/static/media/camera-computer-icons-photography-clip-art-camera-vector-5ad18a93b30fa5.7d5837e00dceb46df688.svg",
-    "index.html": "/MichaelRud99/CreateSampleMusicReact.github.io/index.html",
-    "main.44153d35.css.map": "/MichaelRud99/CreateSampleMusicReact.github.io/static/css/main.44153d35.css.map",
-    "main.62d31251.js.map": "/MichaelRud99/CreateSampleMusicReact.github.io/static/js/main.62d31251.js.map"
+    "main.css": "/CreateSampleMusicReact/static/css/main.26b46f86.css",
+    "main.js": "/CreateSampleMusicReact/static/js/main.62d31251.js",
+    "static/media/backgroundImg.png": "/CreateSampleMusicReact/static/media/backgroundImg.c31d2315e64e8efdc104.png",
+    "static/media/camera-computer-icons-photography-clip-art-camera-vector-5ad18a93b30fa5.svg": "/CreateSampleMusicReact/static/media/camera-computer-icons-photography-clip-art-camera-vector-5ad18a93b30fa5.7d5837e00dceb46df688.svg",
+    "index.html": "/CreateSampleMusicReact/index.html",
+    "main.26b46f86.css.map": "/CreateSampleMusicReact/static/css/main.26b46f86.css.map",
+    "main.62d31251.js.map": "/CreateSampleMusicReact/static/js/main.62d31251.js.map"
   },
   "entrypoints": [
-    "static/css/main.44153d35.css",
+    "static/css/main.26b46f86.css",
     "static/js/main.62d31251.js"
   ]
 }
