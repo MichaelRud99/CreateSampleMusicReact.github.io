@@ -10,25 +10,25 @@
 
 ## Overview
 
+<h4 align="center">home page</h4>
+
 ![screenshot](./public/img/imgREADME/StartedWindow.png)
 
-#### home page
+<h4 align="center">add element</h4>
 
 ![screenshot](./public/img/imgREADME/AddElement.png)
 
-#### add element
+<h4 align="center">search elements</h4>
 
 ![screenshot](./public/img/imgREADME/SearchElement.png)
 
-#### search elements
+<h4 align="center">view element</h4>
 
 ![screenshot](./public/img/imgREADME/ViewElement.png)
 
-#### view element
+<h4 align="center">edit element</h4>
 
 ![screenshot](./public/img/imgREADME/EditElement.png)
-
-#### edit element
 
 ### Built With
 
