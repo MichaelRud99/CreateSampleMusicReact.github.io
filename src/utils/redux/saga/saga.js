@@ -1,7 +1,13 @@
-import { put, call, takeLatest } from "redux-saga/effects";
+import {
+   put,
+   call,
+   takeLatest,
+   select,
+} from "redux-saga/effects";
 import checkSuccess from "./checkSuccess";
 import requests from "../../api/requests";
 import requestStorageComposition from "../../api/requestStorageComposition";
+import requestImgCompression from "../../api/requestImgCompression";
 
 import requestDelete from "../../api/requestDelete.js";
 
@@ -16,6 +22,8 @@ import {
    deleteSuccess,
    clearData,
    clearDataSuccess,
+   fileGif,
+   compressionGif,
 } from "../slices/listComposition";
 
 let requestAnswer = 0;
@@ -23,6 +31,13 @@ let requestAnswer = 0;
 export function* read() {
    const data = yield call(requestStorageComposition);
    yield put(writeData(data));
+}
+
+export function* compressFile() {
+   let gif = yield select();
+   gif = gif.listComposition.gif;
+   const compressedFile = yield call(requestImgCompression, gif);
+   yield put(compressionGif(compressedFile));
 }
 
 export function* writeNewComposition(value) {
@@ -66,6 +81,7 @@ export function* watchClickSaga() {
    yield takeLatest(clearData, clearDataGenerator);
    yield takeLatest(delet, deleteComposition);
    yield takeLatest(edit, editComposition);
+   yield takeLatest(fileGif, compressFile);
 }
 
 export default function* rootSaga() {

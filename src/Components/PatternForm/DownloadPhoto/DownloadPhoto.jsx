@@ -1,33 +1,38 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useRef, useState } from "react";
 import patternForm from "../patternForm.module.css";
 import { useActions } from "../../Hooks/useActotion";
 import { inputFieldsSlice } from "../../../utils/redux/slices/inputFieldsSlice";
+import { listCompositionSlice } from "../../../utils/redux/slices/listComposition";
+import { useSelector } from "react-redux";
+import { selectorListComposition } from "../../../utils/redux/selectors";
+import { useEffect } from "react";
 
 const DownloadPhoto = () => {
    const inputFields = useActions(inputFieldsSlice.actions);
+   const compositions = useSelector(selectorListComposition);
+   const compositionsAction = useActions(listCompositionSlice.actions);
+   const inputImg = useRef(null);
+   const slice = useActions(listCompositionSlice.actions);
+   const [namePhote, setNamePhoto] = useState("добавить обложку");
 
-   const [big, setBig] = useState(false);
+   useEffect(() => {
+      if (compositions.gifCompress.length !== 0) {
+         const reader = new FileReader();
+         reader.readAsDataURL(compositions.gifCompress);
+         reader.onloadend = function () {
+            const base64 = reader.result;
+            inputFields.enterAlbumPhoto(base64);
+            compositionsAction.compressionGif("");
+         };
+      }
+   }, [compositions.gifCompress]);
 
    const download = () => {
-      const section = document.querySelectorAll("section");
-      const imgInp = section[2].querySelector("#imgInp");
-      const paragraf = section[2].querySelector("#paragraf");
-
-      imgInp.onchange = (evt) => {
-         const [file] = imgInp.files;
-         if (file) {
-            paragraf.innerText = file.name;
-            if (file.size / 1024 > 70) {
-               setBig(true);
-            } else {
-               setBig(false);
-            }
-            let reader = new FileReader();
-            reader.onloadend = function () {
-               inputFields.enterAlbumPhoto(reader.result);
-            };
-            reader.readAsDataURL(file);
-         }
+      inputImg.current.onchange = () => {
+         const img = inputImg.current.files[0];
+         setNamePhoto(img.name);
+         slice.fileGif(img);
       };
    };
 
@@ -38,25 +43,15 @@ const DownloadPhoto = () => {
                <div className={patternForm.flex}>
                   <span className={patternForm.addPhoto}></span>
                   <p id="paragraf" className={patternForm.paragraf}>
-                     добавить обложку
+                     {namePhote}
                   </p>
                </div>
-
-               {big === true ? (
-                  <p className={patternForm.descriptionParagraf}>
-                     Размер файла слишком большой
-                  </p>
-               ) : (
-                  <p className={patternForm.descriptionParagraf}>
-                     (Файл не более 70 КБ)
-                  </p>
-               )}
             </div>
 
             <input
                accept="image/*"
                type="file"
-               id="imgInp"
+               ref={inputImg}
                className={patternForm.inputImg}
                onClick={download}
             />
