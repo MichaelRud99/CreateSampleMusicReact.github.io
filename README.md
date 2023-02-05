@@ -10,33 +10,47 @@
 
 ## Overview
 
-![screenshot](./public/img/StartedWindow.png)
+![screenshot](./public/img/imgREADME/StartedWindow.png)
 
-Create sample music home page
+#### home page
+
+![screenshot](./public/img/imgREADME/AddElement.png)
+
+#### add element
+
+![screenshot](./public/img/imgREADME/SearchElement.png)
+
+#### search elements
+
+![screenshot](./public/img/imgREADME/ViewElement.png)
+
+#### view element
+
+![screenshot](./public/img/imgREADME/EditElement.png)
+
+#### edit element
 
 ### Built With
 
-The project is built on a JS-library for creating a user interface React using libraries:
+The project is built on a JS-library for creating a user interface React using
+libraries:
+
 -  react-redux
 -  react-router
 -  redux-saga
+-  json-server
 -  react-transition-group
+-  browser-image-compression
 -  normalizr
 -  uniqid
 -  sass
 
 ## How To Use
 
-For correct use, you need to install the following dependencies:
-1. npm install (install node.js)
-2. npm install redux
-3. npm install @reduxjs/toolkit
-4. npm install react-router
-5. npm install redux-saga
-6. npm install react-transition-group --save (for create components with animation transition)
-8. npm install uniqid (for create unique id)
-9. npm install -g sass
-10. npm install -g json-server (for the local server "full fake REST API")
+For correct use, you need to install the following dependencies
+1. npm ci
+2. npm run server (to work with json-server)
+3. npm run start
 
 ## Acknowledgements
 
@@ -45,13 +59,15 @@ For correct use, you need to install the following dependencies:
 -  [react-redux](https://react-redux.js.org/)
 -  [react-router](https://reactrouter.com/en/main)
 -  [redux-saga](https://redux-saga.js.org/)
+-  [json-server](https://github.com/typicode/json-server)
 -  [react-transition-group](https://reactcommunity.org/react-transition-group/)
+-  [browser-image-compression](https://www.npmjs.com/package/browser-image-compression)
 -  [normalizr](https://necolas.github.io/normalize.css/8.0.1/normalize.css)
 -  [uniqid](https://www.npmjs.com/package/uniqid)
 -  [sass](https://sass-scss.ru/install/)
--  [json-server](https://github.com/typicode/json-server)
 
 ## Contact
 
 -  GitHub [MichaelRud99](https://github.com/MichaelRud99)
+-  Telegram [Michael](https://t.me/monsegard)
 -  VK [Michael Rudenok](https://vk.com/id98146849)
